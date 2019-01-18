@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/m_home_bg"
+    android:orientation="vertical">
+
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/m_home_bg">
+
+    </WebView>
+
+    <ImageView
+        android:id="@+id/back_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:src="@mipmap/m_back_icon"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/m_error_bg"
+        android:visibility="gone">
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/error_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/m_error_bg"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:id="@+id/error_alert"
+            android:layout_width="475dp"
+            android:layout_height="192dp"
+            android:layout_gravity="center"
+            android:background="@mipmap/m_error_alert_bg">
+
+            <ImageView
+                android:layout_width="350dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="35dp"
+                android:src="@mipmap/m_error_text" />
+
+            <ImageView
+                android:id="@+id/close_btn"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom|left"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="30dp"
+                android:background="@mipmap/m_close" />
+
+            <ImageView
+                android:id="@+id/reload_btn"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_gravity="right|bottom"
+                android:layout_marginBottom="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@mipmap/muana_reload" />
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/downLoad_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/m_download_bg"
+
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/seek_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="90dp"
+            android:layout_marginRight="90dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/cloud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="22dp"
+                    android:src="@mipmap/m_cloud_icon"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正在下载离线包文件，请稍候"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+
+                <ProgressBar
+                    android:id="@+id/downLoad_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="9dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="35dp"
+                    android:max="100"
+                    android:progressDrawable="@drawable/m_download_progress" />
+
+                <com.faw.h5.StrokeTextView
+                    android:id="@+id/progress_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/unzip_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/seek_bar_layout"
+            android:layout_centerHorizontal="true"
+            android:ellipsize="end"
+            android:maxLength="90"
+            android:textColor="#ffffff"
+            android:textSize="9sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="下载"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:visibility="gone"/>
+
+
+</FrameLayout>

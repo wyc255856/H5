@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.wyc.h5demo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:persistent="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+
+        <activity
+            android:name=".DemoActivity"
+            android:clearTaskOnLaunch="true"
+            android:enabled="true"
+            android:launchMode="standard"
+            android:resumeWhilePausing="true"
+            android:screenOrientation="landscape"
+            android:taskAffinity=""
+            android:windowSoftInputMode="adjustPan">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--<activity-->
+        <!--android:name="com.gh1.ghdownload.test.MainActivity"-->
+        <!--android:screenOrientation="landscape"-->
+
+        <!--android:clearTaskOnLaunch="true"-->
+        <!--android:enabled="true"-->
+        <!--android:launchMode="standard"-->
+        <!--android:resumeWhilePausing="true"-->
+        <!--android:taskAffinity=""-->
+        <!--android:windowSoftInputMode="adjustPan"-->
+        <!--&gt;-->
+
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN" />-->
+
+        <!--<category android:name="android.intent.category.LAUNCHER" />-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <activity
+            android:name="com.faw.h5.ManuaWelecomActivity"
+            android:resumeWhilePausing="true"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+
+        <activity
+            android:name="com.faw.h5.ManualSelecteCarActivity"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name="com.faw.h5.ManuaSetActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name="com.faw.h5.ManuaPlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape">
+
+        </activity>
+
+
+        <activity
+            android:name="com.faw.h5.ManualWebActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:screenOrientation="landscape"></activity>
+        <!--<service android:name="com.baidu.che.codriversdk.PlatformService"></service>-->
+
+        <receiver
+            android:name="com.faw.h5.ManuaVoiceResultReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.faw.h5.voice" />
+            </intent-filter>
+
+        </receiver>
+
+
+        <!--<receiver-->
+        <!--android:name="com.baidu.che.codrivercustom1.receiver.BootReceiver"-->
+        <!--android:exported="true">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
+        <!--<action android:name="com.baidu.che.codrivercustom.START" />-->
+        <!--<action android:name="com.baidu.carlifevehicle.broadcast.CONNECTED" />-->
+        <!--<action android:name="com.baidu.carlifevehicle.broadcast.DISCONNECTED" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+
+
+        <!--<activity-->
+        <!--android:name="com.baidu.che.codrivercustom1.ui.MainActivity"-->
+        <!--android:clearTaskOnLaunch="true"-->
+        <!--android:enabled="true"-->
+        <!--android:launchMode="singleTask"-->
+        <!--android:resumeWhilePausing="true"-->
+        <!--android:screenOrientation="landscape"-->
+        <!--android:taskAffinity=""-->
+        <!--android:windowSoftInputMode="adjustPan">-->
+
+        <!--</activity>-->
+
+        <!--<service android:name="com.faw.h5.TargetService"></service>-->
+        <!--<receiver android:name="com.faw.h5.PushReciver"></receiver>-->
+        <service android:name="com.gh1.ghdownload.core.DownloadService" />
+        <!--<receiver android:name="com.faw.h5.AppReceiver">-->
+        <!--<intent-filter>-->
+        <!--&lt;!&ndash; 一个新应用包已经安装在设备上，数据包括包名（监听所在的app，新安装时，不能接收到这个广播） &ndash;&gt;-->
+        <!--<action android:name="android.intent.action.PACKAGE_ADDED" />-->
+        <!--&lt;!&ndash; 一个新版本的应用安装到设备，替换之前已经存在的版本  替换时会先收到卸载的再收到替换的， 替换自身也能收到&ndash;&gt;-->
+        <!--<action android:name="android.intent.action.PACKAGE_REPLACED" />-->
+        <!--&lt;!&ndash; 一个已存在的应用程序包已经从设备上移除，包括包名（卸载监听所在的app，则无法接收到） &ndash;&gt;-->
+        <!--<action android:name="android.intent.action.PACKAGE_REMOVED" />-->
+        <!--<data android:scheme="package" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+    </application>
+
+</manifest>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/single_light_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/single_light_text"
+            android:layout_width="121dp"
+            android:layout_height="25dp"
+            android:background="@mipmap/m_ar_text_bg"
+            android:gravity="center"
+            android:text="转向信号灯手柄"
+            android:textColor="#d8d8d8"
+            android:textSize="15sp" />
+
+        <com.faw.h5.widget.ARPointView
+            android:layout_width="64dp"
+            android:layout_height="51dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hongqi_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/hongqi_text"
+            android:layout_width="78dp"
+            android:layout_height="25dp"
+            android:background="@mipmap/m_ar_text_bg"
+            android:gravity="center"
+            android:text="红旗"
+            android:textColor="#d8d8d8"
+            android:textSize="15sp" />
+
+        <com.faw.h5.widget.ARPointView
+            android:layout_width="64dp"
+            android:layout_height="51dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/control_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.faw.h5.widget.ARPointView
+            android:layout_width="64dp"
+            android:layout_height="51dp" />
+
+        <TextView
+            android:id="@+id/control_text"
+            android:layout_width="110dp"
+            android:layout_height="25dp"
+            android:background="@mipmap/m_ar_text_bg"
+            android:gravity="center"
+            android:text="巡航控制手柄"
+            android:textColor="#d8d8d8"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/steering_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.faw.h5.widget.ARPointView
+            android:layout_width="64dp"
+            android:layout_height="51dp" />
+
+        <TextView
+            android:id="@+id/steering__text"
+            android:layout_width="92dp"
+            android:layout_height="25dp"
+            android:background="@mipmap/m_ar_text_bg"
+            android:gravity="center"
+            android:text="调节方向盘"
+            android:textColor="#d8d8d8"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/t0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/t3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#00000000"
+        android:visibility="gone">
+
+    </WebView>
+</FrameLayout>
