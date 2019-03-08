@@ -14,22 +14,22 @@ import android.widget.TextView;
  */
 
 @SuppressLint("AppCompatCustomView")
-public class StrokeTextView extends TextView {
+public class H5H5StrokeTextView extends TextView {
     private TextView borderText = null;///用于描边的TextView
 
-    public StrokeTextView(Context context) {
+    public H5H5StrokeTextView(Context context) {
         super(context);
         borderText = new TextView(context);
         init();
     }
 
-    public StrokeTextView(Context context, AttributeSet attrs) {
+    public H5H5StrokeTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         borderText = new TextView(context,attrs);
         init();
     }
 
-    public StrokeTextView(Context context, AttributeSet attrs,
+    public H5H5StrokeTextView(Context context, AttributeSet attrs,
                           int defStyle) {
         super(context, attrs, defStyle);
         borderText = new TextView(context,attrs,defStyle);

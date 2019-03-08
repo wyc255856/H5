@@ -10,7 +10,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/manua_ar_camera_bg">
+        android:background="@mipmap/h5_manua_ar_camera_bg">
 
         <ImageView
             android:id="@+id/ar_line"
@@ -18,7 +18,7 @@
             android:layout_height="295dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="35dp"
-            android:src="@mipmap/m_ar_line" />
+            android:src="@mipmap/h5_m_ar_line" />
     </FrameLayout>
 
     <com.faw.h5.widget.ARSteeringView

@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="50dip"
     android:layout_height="50dip"
-    android:background="@drawable/m_dialog_bg"
+    android:background="@drawable/h5_m_dialog_bg"
     android:gravity="center"
     android:orientation="horizontal"
     android:padding="10dip" >
 
-    <com.faw.h5.util.MyProgressBar
+    <com.faw.h5.util.H5MyProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="25dip"
         android:layout_height="25dip"
-        android:background="@mipmap/m_loading1"
+        android:background="@mipmap/h5_m_loading1"
         android:visibility="gone" />
 
     <!--

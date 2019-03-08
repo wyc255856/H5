@@ -9,7 +9,7 @@ import android.util.Log;
  * Created by wyc on 2018/6/11.
  */
 
-public class PushReciver extends BroadcastReceiver {
+public class H5PushReciver extends BroadcastReceiver {
 
 
     @Override
@@ -19,17 +19,17 @@ public class PushReciver extends BroadcastReceiver {
         }else if(Intent.ACTION_USER_PRESENT.equals(intent.getAction())){
             Log.d("un", "手机被唤醒");
             Intent i = new Intent();
-            i.setClass(context, TargetService.class);
+            i.setClass(context, H5TargetService.class);
             context.startService(i);
         }else if("com.example.service_destory".equals(intent.getAction())){
             Log.d("un", "上次服务被挂了");
             Intent i = new Intent();
-            i.setClass(context, TargetService.class);
+            i.setClass(context, H5TargetService.class);
             context.startService(i);
         }else if("com.example.clock".equals(intent.getAction())){
             Log.d("un", "定时闹钟的广播");
             Intent i = new Intent();
-            i.setClass(context, TargetService.class);
+            i.setClass(context, H5TargetService.class);
             context.startService(i);
         }
     }

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class SharedpreferencesUtil {
+public class H5SharedpreferencesUtil {
     static String PREFERENCES_NAME = "share";
 
     private static String ISFIRST = "isFirst";

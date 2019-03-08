@@ -5,31 +5,31 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.faw.h5.util.FireUtil;
-import com.faw.h5.util.SharedpreferencesUtil;
+import com.faw.h5.util.H5SharedpreferencesUtil;
 
 /**
  * Created by wyc on 2018/4/19.
  */
 
-public class ManualSelecteCarActivity extends BaseActivity implements View.OnClickListener {
+public class H5ManualSelecteCarActivity extends H5BaseActivity implements View.OnClickListener {
     View spinner, spinner_layout;
-    TextView spinner_text;
+    TextView h5_spinner_text;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7;
 
     @Override
     protected void initData() {
-        setContentView(R.layout.activity_select);
+        setContentView(R.layout.h5_activity_select);
         spinner_layout = findViewById(R.id.spinner_layout);
-        spinner_text = (TextView) findViewById(R.id.model);
+        h5_spinner_text = (TextView) findViewById(R.id.model);
         spinner = findViewById(R.id.spinner);
-//        muana_yes_btn = findViewById(R.id.muana_yes_btn);
+//        h5_muana_yes_btn = findViewById(R.id.h5_muana_yes_btn);
         initSelect();
     }
 
 
     @Override
     protected void initWidgetActions() {
-        if (SharedpreferencesUtil.getIsFirst(this)) {
+        if (H5SharedpreferencesUtil.getIsFirst(this)) {
             FireUtil.isExist(this);
         }
 //        no _btn.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +49,7 @@ public class ManualSelecteCarActivity extends BaseActivity implements View.OnCli
                 }
             }
         });
-//        muana_yes_btn.setOnClickListener(new View.OnClickListener() {
+//        h5_muana_yes_btn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //
@@ -73,21 +73,21 @@ public class ManualSelecteCarActivity extends BaseActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         spinner_layout.setVisibility(View.GONE);
-        spinner_text.setText(((TextView) v).getText().toString());
-        String str = spinner_text.getText().toString();
+        h5_spinner_text.setText(((TextView) v).getText().toString());
+        String str = h5_spinner_text.getText().toString();
         if (str.equals("型动版")) {
-            SharedpreferencesUtil.setCarModel(ManualSelecteCarActivity.this, "HONGQIH5_1");
+            H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_1");
         } else if (str.equals("智联灵动版")) {
-            SharedpreferencesUtil.setCarModel(ManualSelecteCarActivity.this, "HONGQIH5_2");
+            H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_2");
         } else if (str.equals("智联韵动版")) {
-            SharedpreferencesUtil.setCarModel(ManualSelecteCarActivity.this, "HONGQIH5_3");
+            H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_3");
         } else if (str.equals("智联享动版")) {
-            SharedpreferencesUtil.setCarModel(ManualSelecteCarActivity.this, "HONGQIH5_4");
+            H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_4");
         } else if (str.equals("智联御动版")) {
-            SharedpreferencesUtil.setCarModel(ManualSelecteCarActivity.this, "HONGQIH5_5");
+            H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_5");
         }
-        SharedpreferencesUtil.setIsFirst(ManualSelecteCarActivity.this, false);
-        startActivity(new Intent(ManualSelecteCarActivity.this, ManualWebActivity.class));
+        H5SharedpreferencesUtil.setIsFirst(H5ManualSelecteCarActivity.this, false);
+        startActivity(new Intent(H5ManualSelecteCarActivity.this, H5ManualWebActivity.class));
         finish();
 
     }

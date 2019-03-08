@@ -9,7 +9,7 @@ import android.util.Log;
  * Created by wyc on 2018/4/22.
  */
 
-public class AppReceiver extends BroadcastReceiver {
+public class H5AppReceiver extends BroadcastReceiver {
     private final String TAG = this.getClass().getSimpleName();
     @Override
     public void onReceive(Context context, Intent intent) {

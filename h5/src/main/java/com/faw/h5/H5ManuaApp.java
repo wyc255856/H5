@@ -13,7 +13,7 @@ import com.faw.h5.util.LogUtil;
  * Created by wyc on 18/3/26.
  */
 
-public class ManuaApp extends Application {
+public class H5ManuaApp extends Application {
     public static Context sContext;//全局的Context对象
     @Override
     public void onCreate() {

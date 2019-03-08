@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/m_home_bg"
+    android:background="@mipmap/h5_m_home_bg"
     android:orientation="vertical">
 
     <WebView
         android:id="@+id/web_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/m_home_bg">
+        android:background="@mipmap/h5_m_home_bg">
 
     </WebView>
 
@@ -20,14 +20,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="30dp"
-        android:src="@mipmap/m_back_icon"
+        android:src="@mipmap/h5_m_back_icon"
         android:visibility="gone" />
 
     <FrameLayout
         android:id="@+id/loading_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/m_error_bg"
+        android:background="@mipmap/h5_m_error_bg"
         android:visibility="gone">
 
 
@@ -37,7 +37,7 @@
         android:id="@+id/error_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/m_error_bg"
+        android:background="@mipmap/h5_m_error_bg"
         android:visibility="gone">
 
         <FrameLayout
@@ -45,14 +45,14 @@
             android:layout_width="475dp"
             android:layout_height="192dp"
             android:layout_gravity="center"
-            android:background="@mipmap/m_error_alert_bg">
+            android:background="@mipmap/h5_m_error_alert_bg">
 
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="35dp"
-                android:src="@mipmap/m_error_text" />
+                android:src="@mipmap/h5_m_error_text" />
 
             <ImageView
                 android:id="@+id/close_btn"
@@ -61,7 +61,7 @@
                 android:layout_gravity="bottom|left"
                 android:layout_marginBottom="30dp"
                 android:layout_marginLeft="30dp"
-                android:background="@mipmap/m_close" />
+                android:background="@mipmap/h5_m_close" />
 
             <ImageView
                 android:id="@+id/reload_btn"
@@ -70,7 +70,7 @@
                 android:layout_gravity="right|bottom"
                 android:layout_marginBottom="30dp"
                 android:layout_marginRight="30dp"
-                android:background="@mipmap/muana_reload" />
+                android:background="@mipmap/h5_muana_reload" />
         </FrameLayout>
 
     </FrameLayout>
@@ -79,7 +79,7 @@
         android:id="@+id/downLoad_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/m_download_bg"
+        android:background="@mipmap/h5_m_download_bg"
 
         android:visibility="gone">
 
@@ -104,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="22dp"
-                    android:src="@mipmap/m_cloud_icon"
+                    android:src="@mipmap/h5_m_cloud_icon"
                     android:visibility="gone" />
 
                 <TextView
@@ -122,9 +122,9 @@
                     android:layout_centerVertical="true"
                     android:layout_marginTop="35dp"
                     android:max="100"
-                    android:progressDrawable="@drawable/m_download_progress" />
+                    android:progressDrawable="@drawable/h5_m_download_progress" />
 
-                <com.faw.h5.StrokeTextView
+                <com.faw.h5.H5H5StrokeTextView
                     android:id="@+id/progress_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

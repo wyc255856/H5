@@ -27,9 +27,9 @@ import android.widget.Toast;
 
 import com.faw.h5.util.LibIOUtil;
 import com.faw.h5.util.LogUtil;
-import com.faw.h5.util.ManuaConfig;
-import com.faw.h5.util.NativeInterface;
-import com.faw.h5.util.SharedpreferencesUtil;
+import com.faw.h5.util.H5ManuaConfig;
+import com.faw.h5.util.H5NativeInterface;
+import com.faw.h5.util.H5SharedpreferencesUtil;
 import com.gh1.ghdownload.DownloadManager;
 import com.gh1.ghdownload.entity.DownloadEntry;
 import com.gh1.ghdownload.notify.DataWatcher;
@@ -48,7 +48,7 @@ import java.util.Enumeration;
  * Created by wyc on 2018/8/6.
  */
 
-public class ZhiguoTextActivity extends Activity {
+public class H5ZhiguoTextActivity extends Activity {
     public static WebView webView;
     public static Activity context;
     private TextView textView;
@@ -56,7 +56,7 @@ public class ZhiguoTextActivity extends Activity {
     private View error_alert;
     boolean isError = false;
     public static ProgressBar downLoad_progress;
-    public static StrokeTextView progress_text;
+    public static H5H5StrokeTextView progress_text;
     private boolean isExit = false;
     private String url;
     //    public AppCompatImageView loading_icon;
@@ -78,7 +78,7 @@ public class ZhiguoTextActivity extends Activity {
         int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
         //设置当前窗体为全屏显示
         window.setFlags(flag, flag);
-        setContentView(R.layout.activity_m_web);
+        setContentView(R.layout.h5_activity_m_web);
 
 
         entry = new DownloadEntry("http://www.haoweisys.com/bentengzixun/pano/pano.zip");
@@ -89,7 +89,7 @@ public class ZhiguoTextActivity extends Activity {
         error_view = findViewById(R.id.error_view);
         webView = (WebView) findViewById(R.id.web_view);
 //        loading_icon = (AppCompatImageView) findViewById(R.id.loading_icon);
-        progress_text = (StrokeTextView) findViewById(R.id.progress_text);
+        progress_text = (H5H5StrokeTextView) findViewById(R.id.progress_text);
         downLoad_progress = (ProgressBar) findViewById(R.id.downLoad_progress);
         downLoad_view = findViewById(R.id.downLoad_view);
         error_alert = findViewById(R.id.error_alert);
@@ -108,7 +108,7 @@ public class ZhiguoTextActivity extends Activity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manuaDownLoadZip(ZhiguoTextActivity.context);
+                manuaDownLoadZip(H5ZhiguoTextActivity.context);
             }
         });
 
@@ -128,7 +128,7 @@ public class ZhiguoTextActivity extends Activity {
                 super.onReceivedError(view, request, error);
                 isError = true;
                 if (isError) {
-                    if (webView.getUrl().equals(ManuaConfig.getManuaUrl(ZhiguoTextActivity.this) + "?upLoad=" + (ManuaConfig.VERSION.equals(SharedpreferencesUtil.getVersion(context)) ? "0" : "1"))) {
+                    if (webView.getUrl().equals(H5ManuaConfig.getManuaUrl(H5ZhiguoTextActivity.this) + "?upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(context)) ? "0" : "1"))) {
                         error_view.setVisibility(View.VISIBLE);
                         error_alert.setVisibility(View.VISIBLE);
                         webView.setEnabled(true);// 当加载网页的时候将网页进行隐藏
@@ -148,7 +148,7 @@ public class ZhiguoTextActivity extends Activity {
 //                tv.setText("加载完成");
                 if (isError) {
 
-                    if (webView.getUrl().equals(ManuaConfig.getManuaUrl(ZhiguoTextActivity.this) + "?upLoad=" + (ManuaConfig.VERSION.equals(SharedpreferencesUtil.getVersion(context)) ? "0" : "1"))) {
+                    if (webView.getUrl().equals(H5ManuaConfig.getManuaUrl(H5ZhiguoTextActivity.this) + "?upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(context)) ? "0" : "1"))) {
                         error_view.setVisibility(View.VISIBLE);
                         error_alert.setVisibility(View.VISIBLE);
                         webView.setEnabled(true);// 当加载网页的时候将网页进行隐藏
@@ -161,33 +161,33 @@ public class ZhiguoTextActivity extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 LogUtil.logError("url = " + url);
-                LogUtil.logError("url = " + ManuaConfig.getManuaUrl(ZhiguoTextActivity.this));
+                LogUtil.logError("url = " + H5ManuaConfig.getManuaUrl(H5ZhiguoTextActivity.this));
                 if (url != null) {
                     if (!url.contains("mp4")) {
                         LogUtil.logError("url = vr");
                         webView.setLayerType(View.LAYER_TYPE_NONE, null);
-                        webView.setBackgroundResource(R.mipmap.manua_vr_bg);
+                        webView.setBackgroundResource(R.mipmap.h5_manua_vr_bg);
                     } else {
                         LogUtil.logError("url = LAYER_TYPE_HARDWARE");
                         webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-                        webView.setBackgroundResource(R.mipmap.m_home_bg);
+                        webView.setBackgroundResource(R.mipmap.h5_m_home_bg);
                     }
                 }
                 if (Build.VERSION.SDK_INT < 26) {
                     view.loadUrl(url);
                     return true;
                 }
-//                if ("0".equals(SharedpreferencesUtil.getCarMode(ManualWebActivity.this))) {
-//                    LogUtil.logError("ManuaConfig.getManuaUrl(context) = " + ManuaConfig.getManuaUrl(context));
+//                if ("0".equals(H5SharedpreferencesUtil.getCarMode(H5ManualWebActivity.this))) {
+//                    LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + H5ManuaConfig.getManuaUrl(context));
 //                    view.loadUrl("file:///"+ LibIOUtil.getDefaultPath(context)+"C217_1");
 //                } else {
-//                    LogUtil.logError("ManuaConfig.getManuaUrl(context) = " + ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl(ManuaConfig.getManuaUrl(context));
+//                    LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + H5ManuaConfig.getManuaUrl(context));
+//                    view.loadUrl(H5ManuaConfig.getManuaUrl(context));
 ////            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
 //                }
                 LogUtil.logError("url = " + url);
-                LogUtil.logError("url = " + ManuaConfig.getManuaUrl(ZhiguoTextActivity.this));
-//                if (url.equals(ManuaConfig.getManuaUrl(ManualWebActivity.this) + "/") || url.equals("file:///storage/emulated/0/manua/com.wyc.zhangsan.htmlapi/C217_1/index.html")) {
+                LogUtil.logError("url = " + H5ManuaConfig.getManuaUrl(H5ZhiguoTextActivity.this));
+//                if (url.equals(H5ManuaConfig.getManuaUrl(H5ManualWebActivity.this) + "/") || url.equals("file:///storage/emulated/0/manua/com.wyc.zhangsan.htmlapi/C217_1/index.html")) {
 //                    findViewById(R.id.back_icon).setVisibility(View.GONE);
 //                } else {
 //                    findViewById(R.id.back_icon).setVisibility(View.VISIBLE);
@@ -215,7 +215,7 @@ public class ZhiguoTextActivity extends Activity {
         webView.getSettings().setAllowFileAccessFromFileURLs(true);
         webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
 
-        webView.addJavascriptInterface(new NativeInterface(), "app");
+        webView.addJavascriptInterface(new H5NativeInterface(), "app");
 
 
         webView.getSettings().setDomStorageEnabled(true);
@@ -232,7 +232,7 @@ public class ZhiguoTextActivity extends Activity {
 // 为Intent设置Action、Category属性
                 intent.setAction(Intent.ACTION_MAIN);// "android.intent.action.MAIN"
                 intent.addCategory(Intent.CATEGORY_HOME); //"android.intent.category.HOME"
-                ManualWebActivity.context.startActivity(intent);
+                H5ManualWebActivity.context.startActivity(intent);
             }
         });
         findViewById(R.id.reload_btn).setOnClickListener(new View.OnClickListener() {
@@ -271,18 +271,18 @@ public class ZhiguoTextActivity extends Activity {
     private void loadUrl() {
 //        webView.loadUrl("file:///android_asset/index.html");
 //
-//        if ("0".equals(SharedpreferencesUtil.getCarMode(this))) {
-//            LogUtil.logError("ManuaConfig.getManuaUrl(context) = " + "file://" + LibIOUtil.getDefaultPath(context) + SharedpreferencesUtil.getModelLocal(ManualWebActivity.this) + "/index.html" + "?upLoad=" + (ManuaConfig.VERSION.equals(SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
-//            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + SharedpreferencesUtil.getModelLocal(ManualWebActivity.this) + "/index.html" + "?upLoad=" + (ManuaConfig.VERSION.equals(SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
+//        if ("0".equals(H5SharedpreferencesUtil.getCarMode(this))) {
+//            LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + "file://" + LibIOUtil.getDefaultPath(context) + H5SharedpreferencesUtil.getModelLocal(H5ManualWebActivity.this) + "/index.html" + "?upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
+//            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + H5SharedpreferencesUtil.getModelLocal(H5ManualWebActivity.this) + "/index.html" + "?upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
 //        } else {
-//            LogUtil.logError("ManuaConfig.getManuaUrl(context) = " + ManuaConfig.getManuaUrl(context));
+//            LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + H5ManuaConfig.getManuaUrl(context));
 ////            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + "C217_1/index.html");
-//            webView.loadUrl(ManuaConfig.getManuaUrl(context) + "?upLoad=" + (ManuaConfig.VERSION.equals(SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
+//            webView.loadUrl(H5ManuaConfig.getManuaUrl(context) + "?upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
 ////            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
 //        }
 
-        if ("0".equals(SharedpreferencesUtil.getCarMode(this))) {
-            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + SharedpreferencesUtil.getModelLocal(ZhiguoTextActivity.this) + "/index.html" + "?upLoad=" + (ManuaConfig.VERSION.equals(SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
+        if ("0".equals(H5SharedpreferencesUtil.getCarMode(this))) {
+            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + H5SharedpreferencesUtil.getModelLocal(H5ZhiguoTextActivity.this) + "/index.html" + "?upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
         } else {
 
             webView.loadUrl("http://www.haoweisys.com/bentengzixun/pano/");
@@ -295,11 +295,11 @@ public class ZhiguoTextActivity extends Activity {
 
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getRepeatCount() == 0) {
-//            ManualWebActivity.webView.loadUrl("javascript:closeLocalStorage()");
+//            H5ManualWebActivity.webView.loadUrl("javascript:closeLocalStorage()");
             if (webView.canGoBack()) {
                 error_view.setVisibility(View.GONE);
                 LogUtil.logError("===============");
-                ManualWebActivity.webView.loadUrl("javascript:closeLocalStorage()");
+                H5ManualWebActivity.webView.loadUrl("javascript:closeLocalStorage()");
                 webView.goBack(); // 后退
 //                if (webView.canGoBack()) {
 //                    findViewById(R.id.back_icon).setVisibility(View.VISIBLE);
@@ -318,7 +318,7 @@ public class ZhiguoTextActivity extends Activity {
 
     protected void exit() {
         if (isExit) {
-            ManualWebActivity.webView.loadUrl("javascript:RemoveLocalStorage()");
+            H5ManualWebActivity.webView.loadUrl("javascript:RemoveLocalStorage()");
             finish();
             System.exit(0);
         } else {
@@ -384,11 +384,11 @@ public class ZhiguoTextActivity extends Activity {
             }
             //输出文件路径信息
 //            System.out.println(outPath);
-            ZhiguoTextActivity.context.runOnUiThread(new Runnable() {
+            H5ZhiguoTextActivity.context.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (ZhiguoTextActivity.unZipText != null)
-                        ZhiguoTextActivity.unZipText.setText("正在解压：" + outPath);
+                    if (H5ZhiguoTextActivity.unZipText != null)
+                        H5ZhiguoTextActivity.unZipText.setText("正在解压：" + outPath);
                 }
             });
             OutputStream out = new FileOutputStream(outPath);
@@ -430,18 +430,18 @@ public class ZhiguoTextActivity extends Activity {
 
         @Override
         public void onDataChanged(DownloadEntry data) {
-            ZhiguoTextActivity.entry = data;
+            H5ZhiguoTextActivity.entry = data;
             Log.e("tag", "data.percent = " + data.percent);
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99%");
-                ZhiguoTextActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
-                //ZhiguoTextActivity.downLoad_progress.setProgress(99);
+                H5ZhiguoTextActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
+                //H5ZhiguoTextActivity.downLoad_progress.setProgress(99);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
 //                        try {
-//                            ManualWebActivity.unZipFiles(LibIOUtil.getDefaultUploadZipPath(context),LibIOUtil.getDefaultPath(context));
+//                            H5ManualWebActivity.unZipFiles(LibIOUtil.getDefaultUploadZipPath(context),LibIOUtil.getDefaultPath(context));
 //                        } catch (IOException e) {
 //                            e.printStackTrace();
 //                        }
@@ -455,10 +455,10 @@ public class ZhiguoTextActivity extends Activity {
 //                            context.runOnUiThread(new Runnable() {
 //                                @Override
 //                                public void run() {
-////                                    showLoadingDialog();
+////                                    showH5LoadingDialog();
 //                                }
 //                            });
-                            ManualWebActivity.unZipFiles(saveFile, LibIOUtil.getDefaultPath(context));
+                            H5ManualWebActivity.unZipFiles(saveFile, LibIOUtil.getDefaultPath(context));
                             ((Activity) context).runOnUiThread(new Runnable() {
 
                                 @Override
@@ -468,24 +468,24 @@ public class ZhiguoTextActivity extends Activity {
                                     downLoad_progress.setProgress(100);
                                     progress_text.setText("100%");
                                     downLoad_view.setVisibility(View.GONE);
-                                    SharedpreferencesUtil.setHaveLocal(ManualWebActivity.context, "1");
-                                    SharedpreferencesUtil.setModelLocal(context, SharedpreferencesUtil.getCarModel(context));
-                                    SharedpreferencesUtil.setCarMode(context, "0");
-                                    SharedpreferencesUtil.setVersion(context, ManuaConfig.VERSION);
+                                    H5SharedpreferencesUtil.setHaveLocal(H5ManualWebActivity.context, "1");
+                                    H5SharedpreferencesUtil.setModelLocal(context, H5SharedpreferencesUtil.getCarModel(context));
+                                    H5SharedpreferencesUtil.setCarMode(context, "0");
+                                    H5SharedpreferencesUtil.setVersion(context, H5ManuaConfig.VERSION);
                                     saveFile.delete();
-//                                    hideLoadingDialog();
-                                    Intent intent = new Intent(ZhiguoTextActivity.context, ZhiguoTextActivity.class);
+//                                    hideH5LoadingDialog();
+                                    Intent intent = new Intent(H5ZhiguoTextActivity.context, H5ZhiguoTextActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                                    ZhiguoTextActivity.context.startActivity(intent);
-                                    ZhiguoTextActivity.context.finish();
+                                    H5ZhiguoTextActivity.context.startActivity(intent);
+                                    H5ZhiguoTextActivity.context.finish();
                                     Toast.makeText(context, "下载成功", Toast.LENGTH_SHORT).show();
-                                    SharedpreferencesUtil.setCarMode(context, "0");
+                                    H5SharedpreferencesUtil.setCarMode(context, "0");
                                 }
                             });
 
                         } catch (IOException e) {
                             e.printStackTrace();
-//                            hideLoadingDialog();
+//                            hideH5LoadingDialog();
                         }
 //                        ZipUtil.unpack(saveFile, new File(LibIOUtil.getDefaultPath(context)), Charset.forName("GBK"));
 
@@ -506,9 +506,9 @@ public class ZhiguoTextActivity extends Activity {
 
 //        Log.e("tag", "saveFile = " + saveFile);
         Log.e("tag", "url = " + url);
-        ZhiguoTextActivity.downLoad_view.setVisibility(View.VISIBLE);
+        H5ZhiguoTextActivity.downLoad_view.setVisibility(View.VISIBLE);
 
-        DownloadManager.getInstance(context).add(ZhiguoTextActivity.entry);
+        DownloadManager.getInstance(context).add(H5ZhiguoTextActivity.entry);
     }
 
     private boolean isfirst = true;

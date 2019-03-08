@@ -17,28 +17,28 @@ import com.faw.h5.R;
 
 
 @SuppressLint("AppCompatCustomView")
-public class MyProgressBar extends ImageView {
+public class H5MyProgressBar extends ImageView {
     private RotateAnimation mRotateAnimation;
     private Paint paint = null;
     private Drawable defaultDrawable = null;
     private int width = 0;
     private int height = 0;
 
-    public MyProgressBar(Context context) {
+    public H5MyProgressBar(Context context) {
         super(context);
         init();
     }
 
-    public MyProgressBar(Context context, AttributeSet attrs) {
+    public H5MyProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public MyProgressBar(Context context, boolean isCreate) {
+    public H5MyProgressBar(Context context, boolean isCreate) {
         super(context);
         init();
-        width = (int) getResources().getDimension(R.dimen.default_progress_bar_width);
-        height = (int) getResources().getDimension(R.dimen.default_progress_bar_height);
+        width = (int) getResources().getDimension(R.dimen.h5_default_progress_bar_width);
+        height = (int) getResources().getDimension(R.dimen.h5_default_progress_bar_height);
     }
 
     private void init() {
@@ -53,7 +53,7 @@ public class MyProgressBar extends ImageView {
         canvas.drawColor(Color.TRANSPARENT);
         defaultDrawable = this.getBackground();
         if (defaultDrawable == null)
-            defaultDrawable = getResources().getDrawable(R.mipmap.m_loading1);
+            defaultDrawable = getResources().getDrawable(R.mipmap.h5_m_loading1);
         if (width == 0)
             width = this.getWidth();
         if (height == 0)

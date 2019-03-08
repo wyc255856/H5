@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.faw.h5.ManuaApi;
-
+import com.faw.h5.H5ManuaApi;
 
 /**
  * Created by wyc on 2018/6/29.
@@ -20,7 +19,7 @@ public class DemoActivity extends Activity {
     }
 
     public void onClick(View view) {
-        ManuaApi.getInstance().openManua(this,"");
+        H5ManuaApi.getInstance().openManua(this,"");
     }
 
 }

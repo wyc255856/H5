@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="spinner_text">
+    <style name="h5_spinner_text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:textSize">21sp</item>
@@ -17,17 +17,17 @@
         <item name="android:textStyle">bold</item>
     </style>
     <!-- 加载框 -->
-    <dimen name="default_progress_bar_width">100.0dip</dimen>
-    <dimen name="default_progress_bar_height">100.0dip</dimen>
+    <dimen name="h5_default_progress_bar_width">100.0dip</dimen>
+    <dimen name="h5_default_progress_bar_height">100.0dip</dimen>
 
-    <style name="load_dialog" parent="android:Theme.Holo.Light.Dialog">
+    <style name="h5_load_dialog" parent="android:Theme.Holo.Light.Dialog">
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">false</item>
     </style>
-    <style name="SignDialog" parent="android:style/Theme.Dialog">
+    <style name="h5_SignDialog" parent="android:style/Theme.Dialog">
         <item name="android:background">#00000000</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>

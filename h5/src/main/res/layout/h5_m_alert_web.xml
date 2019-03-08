@@ -10,7 +10,7 @@
         android:layout_width="610dp"
         android:layout_height="330dp"
         android:layout_gravity="center"
-        android:background="@mipmap/m_home_bg">
+        android:background="@mipmap/h5_m_home_bg">
 
     </WebView>
 </FrameLayout>

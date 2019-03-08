@@ -35,7 +35,7 @@ public class ARPointView extends LinearLayout {
     private void initView(Context context) {
         // TODO Auto-generated method stub
         this.mContext = (Activity) context;
-        LayoutInflater.from(context).inflate(R.layout.view_ar_point,
+        LayoutInflater.from(context).inflate(R.layout.h5_view_ar_point,
                 this, true);
         iv_point_center = (ImageView) findViewById(R.id.center_round);
         initAnimation();
@@ -44,7 +44,7 @@ public class ARPointView extends LinearLayout {
 
     public void initAnimation() {
 
-        iv_point_center.setImageResource(R.drawable.m_notice_anim);
+        iv_point_center.setImageResource(R.drawable.h5_m_notice_anim);
         animationDrawable = (AnimationDrawable) iv_point_center.getDrawable();
         animationDrawable.start();
 

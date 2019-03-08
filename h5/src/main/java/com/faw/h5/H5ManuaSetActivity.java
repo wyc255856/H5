@@ -28,9 +28,9 @@ import android.widget.Toast;
 import com.faw.h5.util.FireUtil;
 import com.faw.h5.util.LibIOUtil;
 import com.faw.h5.util.LogUtil;
-import com.faw.h5.util.ManuaConfig;
-import com.faw.h5.util.NativeInterface;
-import com.faw.h5.util.SharedpreferencesUtil;
+import com.faw.h5.util.H5ManuaConfig;
+import com.faw.h5.util.H5NativeInterface;
+import com.faw.h5.util.H5SharedpreferencesUtil;
 import com.gh1.ghdownload.DownloadConfig;
 import com.gh1.ghdownload.DownloadManager;
 import com.gh1.ghdownload.entity.DownloadEntry;
@@ -49,14 +49,14 @@ import java.nio.charset.Charset;
  * Created by wyc on 2018/4/23.
  */
 
-public class ManuaSetActivity extends Activity {
+public class H5ManuaSetActivity extends Activity {
     public static WebView webView;
     public static Activity context;
     private View error_view;
     private View error_alert;
     boolean isError = false;
     public static ProgressBar downLoad_progress;
-    public static StrokeTextView progress_text;
+    public static H5H5StrokeTextView progress_text;
     public static View downLoad_view;
     public static TextView unZipText;
     private boolean isExit = false;
@@ -89,15 +89,15 @@ public class ManuaSetActivity extends Activity {
 //        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.HONEYCOMB){
 //            webView.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
 //        }
-        setContentView(R.layout.activity_m_web);
-        entry = new DownloadEntry(ManuaConfig.getManuaDownLoadUrl(this));
+        setContentView(R.layout.h5_activity_m_web);
+        entry = new DownloadEntry(H5ManuaConfig.getManuaDownLoadUrl(this));
 //        entry = new DownloadEntry("http://www.haoweisys.com/bentengzixun/pano/pano.zip");
         DownloadConfig.DOWNLOAD_PATH = LibIOUtil.getDefaultPath(this);
 
         entry.name = LibIOUtil.UPLOAD_ZIP_FILE;
         error_view = findViewById(R.id.error_view);
         webView = (WebView) findViewById(R.id.web_view);
-        progress_text = (StrokeTextView) findViewById(R.id.progress_text);
+        progress_text = (H5H5StrokeTextView) findViewById(R.id.progress_text);
         downLoad_progress = (ProgressBar) findViewById(R.id.downLoad_progress);
         downLoad_view = findViewById(R.id.downLoad_view);
         unZipText=(TextView)findViewById(R.id.unzip_text);
@@ -109,7 +109,7 @@ public class ManuaSetActivity extends Activity {
 
             @Override
             public View getVideoLoadingProgressView() {
-                FrameLayout frameLayout = new FrameLayout(ManualWebActivity.context);
+                FrameLayout frameLayout = new FrameLayout(H5ManualWebActivity.context);
                 frameLayout.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
                 return frameLayout;
             }
@@ -174,12 +174,12 @@ public class ManuaSetActivity extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
-//                if ("0".equals(SharedpreferencesUtil.getCarMode(ManualWebActivity.this))) {
-//                    LogUtil.logError("ManuaConfig.getManuaUrl(context) = " + ManuaConfig.getManuaUrl(context));
+//                if ("0".equals(H5SharedpreferencesUtil.getCarMode(H5ManualWebActivity.this))) {
+//                    LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + H5ManuaConfig.getManuaUrl(context));
 //                    view.loadUrl("file:///"+ LibIOUtil.getDefaultPath(context)+"C217_1");
 //                } else {
-//                    LogUtil.logError("ManuaConfig.getManuaUrl(context) = " + ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl(ManuaConfig.getManuaUrl(context));
+//                    LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + H5ManuaConfig.getManuaUrl(context));
+//                    view.loadUrl(H5ManuaConfig.getManuaUrl(context));
 ////            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
 //                }
                 return true;
@@ -213,8 +213,8 @@ public class ManuaSetActivity extends Activity {
         webView.getSettings().setAllowFileAccess(true);
         webView.getSettings().setAppCacheEnabled(true);
 
-        webView.addJavascriptInterface(new NativeInterface(), "app");
-//        initLoadingDialog();
+        webView.addJavascriptInterface(new H5NativeInterface(), "app");
+//        initH5LoadingDialog();
         loadUrl();
         findViewById(R.id.close_btn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -244,7 +244,7 @@ public class ManuaSetActivity extends Activity {
     private void loadUrl() {
         LogUtil.logError("url = " + url);
         webView.loadUrl(url);
-//        webView.loadUrl("http://www.haoweisys.com/C217Two/pages/set.html?model=" + SharedpreferencesUtil.getCarModel(ManualWebActivity.context) + "&mode=" + SharedpreferencesUtil.getCarMode(ManualWebActivity.context) + "&haveLocalPackage=" + SharedpreferencesUtil.getHaveLocal(ManualWebActivity.context)+"&upLoad=1"+"&version=v"+SharedpreferencesUtil.getVersion(this));
+//        webView.loadUrl("http://www.haoweisys.com/C217Two/pages/set.html?model=" + H5SharedpreferencesUtil.getCarModel(H5ManualWebActivity.context) + "&mode=" + H5SharedpreferencesUtil.getCarMode(H5ManualWebActivity.context) + "&haveLocalPackage=" + H5SharedpreferencesUtil.getHaveLocal(H5ManualWebActivity.context)+"&upLoad=1"+"&version=v"+H5SharedpreferencesUtil.getVersion(this));
     }
 
 
@@ -367,18 +367,18 @@ public class ManuaSetActivity extends Activity {
 
         @Override
         public void onDataChanged(DownloadEntry data) {
-            ManuaSetActivity.entry = data;
+            H5ManuaSetActivity.entry = data;
             Log.e("tag", "data.percent = " + data.percent);
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99%");
-                ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
-                //ManuaSetActivity.downLoad_progress.setProgress(99);
+                H5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
+                //H5ManuaSetActivity.downLoad_progress.setProgress(99);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
 //                        try {
-//                            ManualWebActivity.unZipFiles(LibIOUtil.getDefaultUploadZipPath(context),LibIOUtil.getDefaultPath(context));
+//                            H5ManualWebActivity.unZipFiles(LibIOUtil.getDefaultUploadZipPath(context),LibIOUtil.getDefaultPath(context));
 //                        } catch (IOException e) {
 //                            e.printStackTrace();
 //                        }
@@ -392,10 +392,10 @@ public class ManuaSetActivity extends Activity {
 //                            context.runOnUiThread(new Runnable() {
 //                                @Override
 //                                public void run() {
-////                                    showLoadingDialog();
+////                                    showH5LoadingDialog();
 //                                }
 //                            });
-                            ManualWebActivity.unZipFiles(saveFile, LibIOUtil.getDefaultPath(context));
+                            H5ManualWebActivity.unZipFiles(saveFile, LibIOUtil.getDefaultPath(context));
                             ((Activity) context).runOnUiThread(new Runnable() {
 
                                 @Override
@@ -405,24 +405,24 @@ public class ManuaSetActivity extends Activity {
                                     downLoad_progress.setProgress(100);
                                     progress_text.setText("100%");
                                     downLoad_view.setVisibility(View.GONE);
-                                    SharedpreferencesUtil.setHaveLocal(ManualWebActivity.context, "1");
-                                    SharedpreferencesUtil.setModelLocal(context, SharedpreferencesUtil.getCarModel(context));
-                                    SharedpreferencesUtil.setCarMode(context, "0");
-                                    SharedpreferencesUtil.setVersion(context, ManuaConfig.VERSION);
+                                    H5SharedpreferencesUtil.setHaveLocal(H5ManualWebActivity.context, "1");
+                                    H5SharedpreferencesUtil.setModelLocal(context, H5SharedpreferencesUtil.getCarModel(context));
+                                    H5SharedpreferencesUtil.setCarMode(context, "0");
+                                    H5SharedpreferencesUtil.setVersion(context, H5ManuaConfig.VERSION);
                                     saveFile.delete();
-//                                    hideLoadingDialog();
-                                    Intent intent = new Intent(ManuaSetActivity.context, ManualWebActivity.class);
+//                                    hideH5LoadingDialog();
+                                    Intent intent = new Intent(H5ManuaSetActivity.context, H5ManualWebActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                                    ManuaSetActivity.context.startActivity(intent);
-                                    ManuaSetActivity.context.finish();
+                                    H5ManuaSetActivity.context.startActivity(intent);
+                                    H5ManuaSetActivity.context.finish();
                                     Toast.makeText(context, "下载成功", Toast.LENGTH_SHORT).show();
-                                    SharedpreferencesUtil.setCarMode(context, "0");
+                                    H5SharedpreferencesUtil.setCarMode(context, "0");
                                 }
                             });
 
                         } catch (IOException e) {
                             e.printStackTrace();
-//                            hideLoadingDialog();
+//                            hideH5LoadingDialog();
                         }
 //                        ZipUtil.unpack(saveFile, new File(LibIOUtil.getDefaultPath(context)), Charset.forName("GBK"));
 
@@ -442,13 +442,13 @@ public class ManuaSetActivity extends Activity {
 
         @Override
         public void onDataChanged(DownloadEntry data) {
-            ManuaSetActivity.entry = data;
+            H5ManuaSetActivity.entry = data;
             Log.e("tag", "data.percent = " + data.percent);
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99%");
-                ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
-                //ManuaSetActivity.downLoad_progress.setProgress(99);
+                H5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
+                //H5ManuaSetActivity.downLoad_progress.setProgress(99);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -456,7 +456,7 @@ public class ManuaSetActivity extends Activity {
                         try {
 
 
-                            if (SharedpreferencesUtil.getIsFirst(context)) {
+                            if (H5SharedpreferencesUtil.getIsFirst(context)) {
                                 FireUtil.isExist(context);
                             }
 
@@ -466,7 +466,7 @@ public class ManuaSetActivity extends Activity {
 //                            context.runOnUiThread(new Runnable() {
 //                                @Override
 //                                public void run() {
-//                                    showLoadingDialog();
+//                                    showH5LoadingDialog();
 //                                }
 //                            });
 
@@ -479,24 +479,24 @@ public class ManuaSetActivity extends Activity {
                                     downLoad_progress.setProgress(100);
                                     progress_text.setText("100%");
                                     downLoad_view.setVisibility(View.GONE);
-                                    SharedpreferencesUtil.setHaveLocal(ManualWebActivity.context, "1");
-                                    SharedpreferencesUtil.setModelLocal(context, SharedpreferencesUtil.getCarModel(context));
-                                    SharedpreferencesUtil.setCarMode(context, "0");
-                                    SharedpreferencesUtil.setVersion(context, ManuaConfig.VERSION);
+                                    H5SharedpreferencesUtil.setHaveLocal(H5ManualWebActivity.context, "1");
+                                    H5SharedpreferencesUtil.setModelLocal(context, H5SharedpreferencesUtil.getCarModel(context));
+                                    H5SharedpreferencesUtil.setCarMode(context, "0");
+                                    H5SharedpreferencesUtil.setVersion(context, H5ManuaConfig.VERSION);
                                     saveFile.delete();
-//                                    hideLoadingDialog();
-                                    Intent intent = new Intent(ManuaSetActivity.context, ManualWebActivity.class);
+//                                    hideH5LoadingDialog();
+                                    Intent intent = new Intent(H5ManuaSetActivity.context, H5ManualWebActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                                    ManuaSetActivity.context.startActivity(intent);
-                                    ManuaSetActivity.context.finish();
+                                    H5ManuaSetActivity.context.startActivity(intent);
+                                    H5ManuaSetActivity.context.finish();
                                     Toast.makeText(context, "下载成功", Toast.LENGTH_SHORT).show();
-                                    SharedpreferencesUtil.setCarMode(context, "0");
+                                    H5SharedpreferencesUtil.setCarMode(context, "0");
 
                                 }
                             });
                         } catch (Exception e) {
                             e.printStackTrace();
-//                            hideLoadingDialog();
+//                            hideH5LoadingDialog();
                         }
                     }
                 }).start();
@@ -509,10 +509,10 @@ public class ManuaSetActivity extends Activity {
 //                showText.setText(entry.toString());
         }
     };
-//    protected static LoadingDialog loadingDialog;
+//    protected static H5LoadingDialog loadingDialog;
 //
-//    protected void initLoadingDialog() {
-//        loadingDialog = new LoadingDialog(this, R.style.load_dialog);
+//    protected void initH5LoadingDialog() {
+//        loadingDialog = new H5LoadingDialog(this, R.style.h5_load_dialog);
 //        loadingDialog.setCancelable(false);
 //
 //        loadingDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
@@ -529,14 +529,14 @@ public class ManuaSetActivity extends Activity {
 //        });
 //    }
 //
-//    private static void showLoadingDialog() {
+//    private static void showH5LoadingDialog() {
 //
 //        if (loadingDialog != null) {
 //            loadingDialog.show();
 //        }
 //    }
 //
-//    private static void hideLoadingDialog() {
+//    private static void hideH5LoadingDialog() {
 //        if (loadingDialog != null && loadingDialog.isShowing()) {
 //            LogUtil.logError("+++++++++");
 //            loadingDialog.dismiss();

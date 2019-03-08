@@ -9,33 +9,33 @@ import android.view.KeyEvent;
 import com.faw.h5.R;
 
 
-public class LoadingDialog extends Dialog {
+public class H5LoadingDialog extends Dialog {
 
 	private AsyncTask<?, ?, ?> asyncTask;
 
-	private MyProgressBar myProgressBar;
+	private H5MyProgressBar myProgressBar;
 
 	private OnKeyCancelListener keyCancelListener;
 
 	private int event = -1;
 
-	public LoadingDialog(Context context) {
+	public H5LoadingDialog(Context context) {
 		super(context);
 	}
 
-	public LoadingDialog(Context context, boolean cancelable, OnCancelListener cancelListener) {
+	public H5LoadingDialog(Context context, boolean cancelable, OnCancelListener cancelListener) {
 		super(context, cancelable, cancelListener);
 	}
 
-	public LoadingDialog(Context context, int theme) {
+	public H5LoadingDialog(Context context, int theme) {
 		super(context, theme);
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.m_load_dialog);
-		myProgressBar = (MyProgressBar) findViewById(R.id.progress_bar);
+		setContentView(R.layout.h5_m_load_dialog);
+		myProgressBar = (H5MyProgressBar) findViewById(R.id.progress_bar);
 	}
 
 	public void setEvent(int event) {
@@ -70,7 +70,7 @@ public class LoadingDialog extends Dialog {
 		if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK) {
 			if (keyCancelListener != null) {
 				cancel();
-				keyCancelListener.cancel(LoadingDialog.this.event);
+				keyCancelListener.cancel(H5LoadingDialog.this.event);
 			}
 		}
 		return super.onKeyDown(keyCode, event);

@@ -19,9 +19,9 @@
             <ImageView
                     android:id="@+id/img_back"
                     android:padding="16dp"
-                    android:src="@mipmap/m_back"
+                    android:src="@mipmap/h5_m_back"
                     android:scaleType="centerCrop"
-                    android:background="@drawable/m_btn_back_selector"
+                    android:background="@drawable/h5_m_btn_back_selector"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"/>
         </FrameLayout>

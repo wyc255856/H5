@@ -1,11 +1,8 @@
 package com.faw.h5.widget;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -15,8 +12,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.JavascriptInterface;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -25,18 +20,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.faw.h5.ManuaPlayerActivity;
-import com.faw.h5.ManuaSetActivity;
-import com.faw.h5.ManualWebActivity;
+import com.faw.h5.H5ManuaPlayerActivity;
 import com.faw.h5.R;
 import com.faw.h5.util.LibIOUtil;
 import com.faw.h5.util.LogUtil;
-import com.faw.h5.util.ManuaConfig;
-import com.faw.h5.util.NativeInterface;
+import com.faw.h5.util.H5ManuaConfig;
+import com.faw.h5.util.H5NativeInterface;
 import com.faw.h5.util.PhoneUtil;
-import com.faw.h5.util.SharedpreferencesUtil;
-
-import java.text.DecimalFormat;
+import com.faw.h5.util.H5SharedpreferencesUtil;
 
 /**
  * Created by wyc on 2018/8/1.
@@ -68,7 +59,7 @@ public class ARSteeringView extends BaseARView {
     private void initView(Context context) {
         // TODO Auto-generated method stub
         this.mContext = (Activity) context;
-        LayoutInflater.from(context).inflate(R.layout.view_ar_steering,
+        LayoutInflater.from(context).inflate(R.layout.h5_view_ar_steering,
                 this, true);
 
         MyManage = (SensorManager) context.getSystemService(context.SENSOR_SERVICE);    //获得系统传感器服务管理权
@@ -128,7 +119,7 @@ public class ARSteeringView extends BaseARView {
         webView.getSettings().setAllowFileAccess(true);
         webView.getSettings().setAllowContentAccess(true);
         webView.setBackgroundColor(0x00000000);
-        webView.addJavascriptInterface(new NativeInterface(), "app");
+        webView.addJavascriptInterface(new H5NativeInterface(), "app");
         webView.getSettings().setDomStorageEnabled(true);
         webView.getSettings().setAppCacheMaxSize(1024 * 1024 * 8);
         webView.getSettings().setAllowFileAccess(true);
@@ -140,13 +131,13 @@ public class ARSteeringView extends BaseARView {
         @Override
         public void onClick(View v) {
             if (v.getId() == R.id.single_light_text) {
-                showNormalAlert(mContext, ManuaConfig.getManuaUrl(mContext) + "/power_h5/contentBox.html");
+                showNormalAlert(mContext, H5ManuaConfig.getManuaUrl(mContext) + "/power_h5/contentBox.html");
             } else if (v.getId() == R.id.hongqi_text) {
-                showNormalAlert(mContext, ManuaConfig.getManuaUrl(mContext) + "/power_h5/contentBox3.html");
+                showNormalAlert(mContext, H5ManuaConfig.getManuaUrl(mContext) + "/power_h5/contentBox3.html");
             } else if (v.getId() == R.id.control_text) {
-                showNormalAlert(mContext, ManuaConfig.getManuaUrl(mContext) + "/power_h5/contentBox2.html");
+                showNormalAlert(mContext, H5ManuaConfig.getManuaUrl(mContext) + "/power_h5/contentBox2.html");
             } else if (v.getId() == R.id.steering__text) {
-                showNormalAlert(mContext, ManuaConfig.getManuaUrl(mContext) + "/power_h5/contentBox4.html");
+                showNormalAlert(mContext, H5ManuaConfig.getManuaUrl(mContext) + "/power_h5/contentBox4.html");
             }
         }
     };
@@ -284,20 +275,20 @@ public class ARSteeringView extends BaseARView {
         webView.setVisibility(VISIBLE);
     }
 
-    class ARNativeInterface {
+    class ARH5NativeInterface {
         @JavascriptInterface
         public void selectModel(final String url) {
             mContext.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
 //                Toast.makeText(mContext, "执行到了downloadZip", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(mContext, ManuaPlayerActivity.class);
-                    if ("0".equals(SharedpreferencesUtil.getCarMode(mContext))) {
-                        LogUtil.logError("url = " + "file://" + LibIOUtil.getDefaultPath(mContext) + SharedpreferencesUtil.getModelLocal(mContext) + url);
-                        intent.putExtra("url", "file://" + LibIOUtil.getDefaultPath(mContext) + SharedpreferencesUtil.getModelLocal(mContext) + "/" + url);
+                    Intent intent = new Intent(mContext, H5ManuaPlayerActivity.class);
+                    if ("0".equals(H5SharedpreferencesUtil.getCarMode(mContext))) {
+                        LogUtil.logError("url = " + "file://" + LibIOUtil.getDefaultPath(mContext) + H5SharedpreferencesUtil.getModelLocal(mContext) + url);
+                        intent.putExtra("url", "file://" + LibIOUtil.getDefaultPath(mContext) + H5SharedpreferencesUtil.getModelLocal(mContext) + "/" + url);
                     } else {
-                        LogUtil.logError("url = " + ManuaConfig.getManuaUrl(mContext) + "/" + url);
-                        intent.putExtra("url", ManuaConfig.getManuaUrl(mContext) + "/" + url);
+                        LogUtil.logError("url = " + H5ManuaConfig.getManuaUrl(mContext) + "/" + url);
+                        intent.putExtra("url", H5ManuaConfig.getManuaUrl(mContext) + "/" + url);
                     }
 
                     intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);

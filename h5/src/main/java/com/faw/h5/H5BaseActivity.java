@@ -13,7 +13,7 @@ import android.view.WindowManager;
 /**
  * Created by wyouflf on 15/11/4.
  */
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class H5BaseActivity extends FragmentActivity {
     private BroadcastReceiver mScreenReceiver;
 
     @Override
@@ -69,7 +69,7 @@ public abstract class BaseActivity extends FragmentActivity {
 
     }
 
-    protected void goActivityByClass(Class<BaseActivity> mClass) {
+    protected void goActivityByClass(Class<H5BaseActivity> mClass) {
         Intent intent = new Intent(this, mClass);
         startActivity(intent);
     }

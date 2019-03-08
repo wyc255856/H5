@@ -5,12 +5,9 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -18,11 +15,8 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
-import com.faw.h5.BaseActivity;
-import com.faw.h5.ManualWebActivity;
+import com.faw.h5.H5BaseActivity;
 import com.faw.h5.R;
-import com.faw.h5.util.AppUtil;
-import com.faw.h5.util.LogUtil;
 import com.faw.h5.util.PhoneUtil;
 import com.faw.h5.widget.ARSteeringView;
 import com.faw.h5.widget.BaseARView;
@@ -36,7 +30,7 @@ import cn.easyar.ImageTarget;
  * Created by wyc on 2018/7/31.
  */
 
-public class ManuaARActivity extends BaseActivity {
+public class ManuaARActivity extends H5BaseActivity {
     ImageView iv_ar_line;
     public static boolean ar_switch = true;
     public static boolean ar_hide_switch = true;
@@ -45,7 +39,7 @@ public class ManuaARActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        setContentView(R.layout.activity_m_ar);
+        setContentView(R.layout.h5_activity_m_ar);
         context = this;
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
@@ -194,7 +188,7 @@ public class ManuaARActivity extends BaseActivity {
 
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getRepeatCount() == 0) {
-//            ManualWebActivity.webView.loadUrl("javascript:closeLocalStorage()");
+//            H5ManualWebActivity.webView.loadUrl("javascript:closeLocalStorage()");
             if (currentARView.webViewIsShow()) {
                 currentARView.hideWebView();
                 return true;
