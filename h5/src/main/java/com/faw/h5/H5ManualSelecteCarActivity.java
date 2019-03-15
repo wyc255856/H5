@@ -82,13 +82,13 @@ public class H5ManualSelecteCarActivity extends H5BaseActivity implements View.O
         if (str.equals("型动版")) {
             H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_1");
         } else if (str.equals("智联灵动版")) {
-            H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_2");
-        } else if (str.equals("智联韵动版")) {
-            H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_3");
-        } else if (str.equals("智联享动版")) {
             H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_4");
-        } else if (str.equals("智联御动版")) {
+        } else if (str.equals("智联韵动版")) {
             H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_5");
+        } else if (str.equals("智联享动版")) {
+            H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_6");
+        } else if (str.equals("智联御动版")) {
+            H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_7");
         } else if (str.equals("移动出行版")) {
             H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_2");
         } else if (str.equals("灵动版")) {
