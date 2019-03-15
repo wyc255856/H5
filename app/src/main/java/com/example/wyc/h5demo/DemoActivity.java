@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import com.faw.controller.ManuaApi;
 import com.faw.h5.H5ManuaApi;
+import com.faw.seniar9.EVManuaApi;
 
 /**
  * Created by wyc on 2018/6/29.
@@ -19,7 +21,12 @@ public class DemoActivity extends Activity {
     }
 
     public void onClick(View view) {
-        H5ManuaApi.getInstance().openManua(this,"");
+        if (view.getId() == R.id.startEV) {
+            ManuaApi.openManua(this, ManuaApi.MANUA_CAR.EV, "");
+        } else if (view.getId() == R.id.startH5) {
+            ManuaApi.openManua(this, ManuaApi.MANUA_CAR.H5, "");
+        }
+
     }
 
 }

@@ -99,44 +99,47 @@
         </receiver>
 
 
-        <!--<receiver-->
-        <!--android:name="com.baidu.che.codrivercustom1.receiver.BootReceiver"-->
-        <!--android:exported="true">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
-        <!--<action android:name="com.baidu.che.codrivercustom.START" />-->
-        <!--<action android:name="com.baidu.carlifevehicle.broadcast.CONNECTED" />-->
-        <!--<action android:name="com.baidu.carlifevehicle.broadcast.DISCONNECTED" />-->
-        <!--</intent-filter>-->
-        <!--</receiver>-->
-
-
-        <!--<activity-->
-        <!--android:name="com.baidu.che.codrivercustom1.ui.MainActivity"-->
-        <!--android:clearTaskOnLaunch="true"-->
-        <!--android:enabled="true"-->
-        <!--android:launchMode="singleTask"-->
-        <!--android:resumeWhilePausing="true"-->
-        <!--android:screenOrientation="landscape"-->
-        <!--android:taskAffinity=""-->
-        <!--android:windowSoftInputMode="adjustPan">-->
-
-        <!--</activity>-->
-
-        <!--<service android:name="com.faw.h5.H5TargetService"></service>-->
-        <!--<receiver android:name="com.faw.h5.H5PushReciver"></receiver>-->
         <service android:name="com.gh1.ghdownload.core.DownloadService" />
-        <!--<receiver android:name="com.faw.h5.H5AppReceiver">-->
-        <!--<intent-filter>-->
-        <!--&lt;!&ndash; 一个新应用包已经安装在设备上，数据包括包名（监听所在的app，新安装时，不能接收到这个广播） &ndash;&gt;-->
-        <!--<action android:name="android.intent.action.PACKAGE_ADDED" />-->
-        <!--&lt;!&ndash; 一个新版本的应用安装到设备，替换之前已经存在的版本  替换时会先收到卸载的再收到替换的， 替换自身也能收到&ndash;&gt;-->
-        <!--<action android:name="android.intent.action.PACKAGE_REPLACED" />-->
-        <!--&lt;!&ndash; 一个已存在的应用程序包已经从设备上移除，包括包名（卸载监听所在的app，则无法接收到） &ndash;&gt;-->
-        <!--<action android:name="android.intent.action.PACKAGE_REMOVED" />-->
-        <!--<data android:scheme="package" />-->
-        <!--</intent-filter>-->
-        <!--</receiver>-->
+
+
+
+
+        <activity
+            android:name="com.faw.seniar9.EVManuaWelecomActivity"
+            android:resumeWhilePausing="true"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+
+        <activity
+            android:name="com.faw.seniar9.EVManualSelecteCarActivity"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name="com.faw.seniar9.EVManuaSetActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name="com.faw.seniar9.EVManuaPlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape">
+
+        </activity>
+
+
+
+        <activity
+            android:name="com.faw.seniar9.EVManualWebActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:screenOrientation="landscape">
+        </activity>
+        <!--<service android:name="com.baidu.che.codriversdk.PlatformService"></service>-->
+
+
+
+
     </application>
 
 </manifest>

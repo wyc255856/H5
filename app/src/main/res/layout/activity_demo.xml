@@ -5,10 +5,19 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/start"
+        android:id="@+id/startH5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:onClick="onClick"
-        android:text="start" />
+        android:text="startH5" />
+
+
+    <Button
+        android:id="@+id/startEV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="onClick"
+        android:text="startEV" />
 </LinearLayout>
