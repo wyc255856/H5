@@ -63,11 +63,15 @@ public class H5ManualSelecteCarActivity extends H5BaseActivity implements View.O
         textView3 = (TextView) findViewById(R.id.text_3);
         textView4 = (TextView) findViewById(R.id.text_4);
         textView5 = (TextView) findViewById(R.id.text_5);
+        textView6 = (TextView) findViewById(R.id.text_6);
+        textView7 = (TextView) findViewById(R.id.text_7);
         textView1.setOnClickListener(this);
         textView2.setOnClickListener(this);
         textView3.setOnClickListener(this);
         textView4.setOnClickListener(this);
         textView5.setOnClickListener(this);
+        textView6.setOnClickListener(this);
+        textView7.setOnClickListener(this);
     }
 
     @Override
@@ -85,6 +89,10 @@ public class H5ManualSelecteCarActivity extends H5BaseActivity implements View.O
             H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_4");
         } else if (str.equals("智联御动版")) {
             H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_5");
+        } else if (str.equals("移动出行版")) {
+            H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_2");
+        } else if (str.equals("灵动版")) {
+            H5SharedpreferencesUtil.setCarModel(H5ManualSelecteCarActivity.this, "HONGQIH5_3");
         }
         H5SharedpreferencesUtil.setIsFirst(H5ManualSelecteCarActivity.this, false);
         startActivity(new Intent(H5ManualSelecteCarActivity.this, H5ManualWebActivity.class));

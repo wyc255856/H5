@@ -130,7 +130,29 @@
                         style="@style/h5_spinner_text"
                         android:text="智联韵动版"
                         android:textStyle="bold" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@mipmap/h5_m_line" />
 
+                    <TextView
+                        android:id="@+id/text_6"
+                        style="@style/h5_spinner_text"
+                        android:text="灵动版"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@mipmap/h5_m_line" />
+
+                    <TextView
+                        android:id="@+id/text_7"
+                        style="@style/h5_spinner_text"
+                        android:text="移动出行版"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
