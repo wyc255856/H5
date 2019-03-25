@@ -27,6 +27,8 @@ public class DemoActivity extends Activity {
             ManuaApi.openManua(this, ManuaApi.MANUA_CAR.H5, "");
         } else if (view.getId() == R.id.startHS5) {
             ManuaApi.openManua(this, ManuaApi.MANUA_CAR.HS5, "");
+        } else if (view.getId() == R.id.startHS7) {
+            ManuaApi.openManua(this, ManuaApi.MANUA_CAR.HS7, "");
         }
 
     }

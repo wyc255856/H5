@@ -160,7 +160,37 @@
             android:name="com.faw.hs5.HS5ManualWebActivity"
             android:configChanges="screenSize|keyboardHidden|orientation"
             android:screenOrientation="landscape"></activity>
+        <activity
+            android:name="com.faw.hs7.HS7ManuaWelecomActivity"
+            android:resumeWhilePausing="true"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan">
 
+        </activity>
+
+        <activity
+            android:name="com.faw.hs7.HS7ManualSelecteCarActivity"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name="com.faw.hs7.HS7ManuaSetActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name="com.faw.hs7.HS7ManuaPlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape">
+
+        </activity>
+
+
+
+        <activity
+            android:name="com.faw.hs7.HS7ManualWebActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:screenOrientation="landscape">
+        </activity>
         <!--<service android:name="com.baidu.che.codriversdk.PlatformService"></service>-->
 
 
