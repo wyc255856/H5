@@ -102,8 +102,6 @@
         <service android:name="com.gh1.ghdownload.core.DownloadService" />
 
 
-
-
         <activity
             android:name="com.faw.seniar9.EVManuaWelecomActivity"
             android:resumeWhilePausing="true"
@@ -128,16 +126,42 @@
 
         </activity>
 
-
-
         <activity
             android:name="com.faw.seniar9.EVManualWebActivity"
             android:configChanges="screenSize|keyboardHidden|orientation"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"></activity>
+
+
+        <activity
+            android:name="com.faw.hs5.HS5ManuaWelecomActivity"
+            android:resumeWhilePausing="true"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan">
+
         </activity>
+
+        <activity
+            android:name="com.faw.hs5.HS5ManualSelecteCarActivity"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name="com.faw.hs5.HS5ManuaSetActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name="com.faw.hs5.HS5ManuaPlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape">
+
+        </activity>
+
+        <activity
+            android:name="com.faw.hs5.HS5ManualWebActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:screenOrientation="landscape"></activity>
+
         <!--<service android:name="com.baidu.che.codriversdk.PlatformService"></service>-->
-
-
 
 
     </application>

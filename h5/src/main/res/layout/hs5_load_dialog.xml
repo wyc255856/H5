@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="50dip"
+    android:layout_height="50dip"
+    android:background="@drawable/hs5_dialog_bg"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="10dip" >
+
+    <com.faw.hs5.util.MyProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="25dip"
+        android:layout_height="25dip"
+        android:background="@mipmap/hs5_loading1"
+        android:visibility="gone" />
+
+    <!--
+         <TextView
+        android:id="@+id/loading_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dip"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:paddingRight="10dip"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+    -->
+
+</LinearLayout>

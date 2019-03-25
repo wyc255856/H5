@@ -20,4 +20,12 @@
         android:layout_margin="10dp"
         android:onClick="onClick"
         android:text="startEV" />
+
+    <Button
+        android:id="@+id/startHS5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="onClick"
+        android:text="startHS5" />
 </LinearLayout>

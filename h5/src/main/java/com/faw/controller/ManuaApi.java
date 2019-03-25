@@ -7,13 +7,14 @@ import android.text.TextUtils;
 import com.faw.h5.H5ManuaApi;
 import com.faw.h5.H5ManuaWelecomActivity;
 import com.faw.h5.util.H5SharedpreferencesUtil;
+import com.faw.hs5.HS5ManuaApi;
 import com.faw.seniar9.EVManuaApi;
 
 public class ManuaApi {
     public static MANUA_CAR CURRENT_CAR;
 
     public enum MANUA_CAR {
-        H5, EV
+        H5, EV,HS5
     }
 
     public static void openManua( Context context,MANUA_CAR car, String carModel) {
@@ -22,6 +23,8 @@ public class ManuaApi {
             EVManuaApi.getInstance().openManua(context, carModel);
         } else if (car == MANUA_CAR.H5) {
             H5ManuaApi.getInstance().openManua(context, carModel);
+        }else if (car == MANUA_CAR.HS5) {
+            HS5ManuaApi.getInstance().openManua(context, carModel);
         }
 
     }
