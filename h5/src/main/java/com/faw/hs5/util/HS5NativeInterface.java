@@ -155,7 +155,7 @@ public class HS5NativeInterface {
         HS5ManualWebActivity.context.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(HS5ManualWebActivity.context, "执行到了goBack  ", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HS5ManualWebActivity.context, "执行到了goBack  ", Toast.LENGTH_SHORT).show();
                 if (getTopActivity(HS5ManualWebActivity.context).toString().contains("HS5ManuaSetActivity")) {
                     LogUtil.logError("=======goBack========" + "finish1");
                     if (HS5ManuaSetActivity.DOWNLOAD_STATE == HS5ManuaSetActivity.MACHINE_STATE.DOWN_LOADING) {

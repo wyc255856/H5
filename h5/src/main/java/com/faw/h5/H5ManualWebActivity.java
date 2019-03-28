@@ -77,7 +77,7 @@ public class H5ManualWebActivity extends Activity {
         window.setFlags(flag, flag);
         setContentView(R.layout.h5_activity_m_web);
 
-        textView=(TextView) findViewById(R.id.text);
+        textView = (TextView) findViewById(R.id.text);
         error_view = findViewById(R.id.error_view);
         webView = (WebView) findViewById(R.id.web_view);
 //        loading_icon = (AppCompatImageView) findViewById(R.id.loading_icon);
@@ -289,12 +289,12 @@ public class H5ManualWebActivity extends Activity {
         webView.loadUrl("file:///android_asset/index.html");
 
         if ("0".equals(H5SharedpreferencesUtil.getCarMode(this))) {
-            LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + "file://" + LibIOUtil.getDefaultPath(context) + H5SharedpreferencesUtil.getModelLocal(H5ManualWebActivity.this) + "/index.html" + "?upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
-            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + H5SharedpreferencesUtil.getModelLocal(H5ManualWebActivity.this) + "/index.html" + "?upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
+            LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + "file://" + LibIOUtil.getDefaultPath(context) + H5SharedpreferencesUtil.getModelLocal(H5ManualWebActivity.this) + "/index.html" + "?upLoad=0");// + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1")
+            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + H5SharedpreferencesUtil.getModelLocal(H5ManualWebActivity.this) + "/index.html" + "?upLoad=false");// + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1")
         } else {
             LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + H5ManuaConfig.getManuaUrl(context));
 //            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + "C217_1/index.html");
-            webView.loadUrl(H5ManuaConfig.getManuaUrl(context) + "?upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
+            webView.loadUrl(H5ManuaConfig.getManuaUrl(context) + "?upLoad=0");//+ (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1")
 //            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
         }
 

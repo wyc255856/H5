@@ -29,6 +29,14 @@ public class DemoActivity extends Activity {
             ManuaApi.openManua(this, ManuaApi.MANUA_CAR.HS5, "");
         } else if (view.getId() == R.id.startHS7) {
             ManuaApi.openManua(this, ManuaApi.MANUA_CAR.HS7, "");
+        } else if (view.getId() == R.id.startEV_1) {
+            ManuaApi.openManua(this, ManuaApi.MANUA_CAR.EV, "EV_1");
+        } else if (view.getId() == R.id.startH5_1) {
+            ManuaApi.openManua(this, ManuaApi.MANUA_CAR.H5, "HONGQIH5_1");
+        } else if (view.getId() == R.id.startHS5_1) {
+            ManuaApi.openManua(this, ManuaApi.MANUA_CAR.HS5, "HS5_1");
+        } else if (view.getId() == R.id.startHS7_1) {
+            ManuaApi.openManua(this, ManuaApi.MANUA_CAR.HS7, "HS7_1");
         }
 
     }

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class HS7SharedpreferencesUtil {
-    static String PREFERENCES_NAME = "share";
+    static String PREFERENCES_NAME = "hs7share";
 
     private static String ISFIRST = "isFirst";
     private static String CAR_MODE = "car_mode";//比较版本更新时间(非强制更新一周一次提示)

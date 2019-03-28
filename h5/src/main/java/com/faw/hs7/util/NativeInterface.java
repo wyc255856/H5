@@ -155,7 +155,7 @@ public class NativeInterface {
         HS7ManualWebActivity.context.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(HS7ManualWebActivity.context, "执行到了goBack  ", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HS7ManualWebActivity.context, "执行到了goBack  ", Toast.LENGTH_SHORT).show();
                 if (getTopActivity(HS7ManualWebActivity.context).toString().contains("HS7ManuaSetActivity")) {
                     LogUtil.logError("=======goBack========" + "finish1");
                     if (HS7ManuaSetActivity.DOWNLOAD_STATE == HS7ManuaSetActivity.MACHINE_STATE.DOWN_LOADING) {

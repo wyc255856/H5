@@ -155,7 +155,7 @@ public class NativeInterface {
         EVManualWebActivity.context.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(EVManualWebActivity.context, "执行到了goBack  ", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(EVManualWebActivity.context, "执行到了goBack  ", Toast.LENGTH_SHORT).show();
                 if (getTopActivity(EVManualWebActivity.context).toString().contains("EVManuaSetActivity")) {
                     LogUtil.logError("=======goBack========" + "finish1");
                     if (EVManuaSetActivity.DOWNLOAD_STATE == EVManuaSetActivity.MACHINE_STATE.DOWN_LOADING) {

@@ -377,11 +377,7 @@ public class H5ManuaSetActivity extends Activity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-//                        try {
-//                            H5ManualWebActivity.unZipFiles(LibIOUtil.getDefaultUploadZipPath(context),LibIOUtil.getDefaultPath(context));
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
+
                         if (!saveFile.exists()) {
                             return;
                         }
@@ -389,12 +385,6 @@ public class H5ManuaSetActivity extends Activity {
                             return;
                         }
                         try {
-//                            context.runOnUiThread(new Runnable() {
-//                                @Override
-//                                public void run() {
-////                                    showH5LoadingDialog();
-//                                }
-//                            });
                             H5ManualWebActivity.unZipFiles(saveFile, LibIOUtil.getDefaultPath(context));
                             ((Activity) context).runOnUiThread(new Runnable() {
 
