@@ -62,7 +62,7 @@ public class H5ManuaWelecomActivity extends H5BaseActivity {
             @Override
             public void run() {
                 super.run();
-                String result = GetPostUrl.get("http://www.haoweisys.com/c217_admin/index.php/home/index/get_new_version/car_series/C217/car_type/1");
+                String result = GetPostUrl.get("http://www.e-guides.faw.cn/h5_admin/index.php/home/index/get_new_version/car_series/C217/car_type/1");
                 LogUtil.logError("result = " + result);
 //                H5SharedpreferencesUtil.setVersion(H5ManuaWelecomActivity.this, result);
                 H5ManuaConfig.VERSION = result;
@@ -75,7 +75,6 @@ public class H5ManuaWelecomActivity extends H5BaseActivity {
             @Override
             public void onClick(View v) {
                 if (time <= 3) {
-                    handler.removeMessages(100001);
                     goNext();
                 }
             }

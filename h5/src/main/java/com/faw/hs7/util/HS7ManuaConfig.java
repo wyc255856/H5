@@ -9,7 +9,7 @@ import android.content.Context;
 public class HS7ManuaConfig {
     public static String VERSION = "1.0.0";
     //    public static String BASE_URL = "http://www.haoweisys.com/EV/";
-    public static String BASE_URL = "http://www.haoweisys.com/HS7/";
+    public static String BASE_URL = "http://www.e-guides.faw.cn/HS7/";
 
     public static String T086_BASE_URL = BASE_URL + "/car_engine_H5/";
     public static String H5_BASE_URL = BASE_URL + "/car_engine_H5/";

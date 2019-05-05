@@ -207,11 +207,12 @@ public class NativeInterface {
         EVManualWebActivity.context.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent();
-// 为Intent设置Action、Category属性
-                intent.setAction(Intent.ACTION_MAIN);// "android.intent.action.MAIN"
-                intent.addCategory(Intent.CATEGORY_HOME); //"android.intent.category.HOME"
-                EVManualWebActivity.context.startActivity(intent);
+//                Intent intent = new Intent();
+//// 为Intent设置Action、Category属性
+//                intent.setAction(Intent.ACTION_MAIN);// "android.intent.action.MAIN"
+//                intent.addCategory(Intent.CATEGORY_HOME); //"android.intent.category.HOME"
+//                EVManualWebActivity.context.startActivity(intent);
+                EVManualWebActivity.context.finish();
             }
         });
         return EVSharedpreferencesUtil.getCarMode(EVManualWebActivity.context);

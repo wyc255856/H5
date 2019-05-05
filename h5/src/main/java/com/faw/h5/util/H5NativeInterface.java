@@ -208,11 +208,12 @@ public class H5NativeInterface {
         H5ManualWebActivity.context.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent();
-// 为Intent设置Action、Category属性
-                intent.setAction(Intent.ACTION_MAIN);// "android.intent.action.MAIN"
-                intent.addCategory(Intent.CATEGORY_HOME); //"android.intent.category.HOME"
-                H5ManualWebActivity.context.startActivity(intent);
+//                Intent intent = new Intent();
+//// 为Intent设置Action、Category属性
+//                intent.setAction(Intent.ACTION_MAIN);// "android.intent.action.MAIN"
+//                intent.addCategory(Intent.CATEGORY_HOME); //"android.intent.category.HOME"
+//                H5ManualWebActivity.context.startActivity(intent);
+                H5ManualWebActivity.context.finish();
             }
         });
         return H5SharedpreferencesUtil.getCarMode(H5ManualWebActivity.context);

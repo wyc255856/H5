@@ -62,7 +62,7 @@ public class HS5ManuaWelecomActivity extends HS5BaseActivity {
             @Override
             public void run() {
                 super.run();
-                String result = GetPostUrl.get("http://www.e-guides.faw.cn/ev_admin/index.php?m=home&c=index&a=get_new_version&car_type=1");
+                String result = GetPostUrl.get("http://www.e-guides.faw.cn/hs5_admin/index.php?m=home&c=index&a=get_new_version&car_type=1");
                 LogUtil.logError("result = " + result);
                 HS5SharedpreferencesUtil.setVersion(HS5ManuaWelecomActivity.this, result);
                 HS5ManuaConfig.VERSION = result;
