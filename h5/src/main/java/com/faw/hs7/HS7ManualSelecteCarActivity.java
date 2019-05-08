@@ -16,13 +16,13 @@ public class HS7ManualSelecteCarActivity extends HS7BaseActivity implements View
     View spinner, spinner_layout;
     TextView spinner_text;
     TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7;
-    String texr1Str = "五座低配";
-    String texr2Str = "五座中低配";
-    String texr3Str = "七座中低配";
-    String texr4Str = "五座中高配";
-    String texr5Str = "七座中高配";
-    String texr6Str = "五座顶配";
-    String texr7Str = "七座顶配";
+    String texr1Str = "旗悦四驱版";
+    String texr2Str = "智联旗享四驱版-五";
+    String texr3Str = "智联旗享四驱版-七";
+    String texr4Str = "智联旗畅四驱版-五";
+    String texr5Str = "智联旗畅四驱版-七";
+    String texr6Str = "智联旗领四驱版-五";
+    String texr7Str = "智联旗领四驱版-七";
 
 
     @Override

@@ -5,6 +5,8 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 
@@ -144,6 +146,7 @@ public class HS5NativeInterface {
                         intent.putExtra("url", "file://" + LibIOUtil.getDefaultPath(HS5ManualWebActivity.context) + HS5SharedpreferencesUtil.getModelLocal(HS5ManualWebActivity.context) + "/pages/setPhone.html" + "?model=" + HS5SharedpreferencesUtil.getCarModel(HS5ManualWebActivity.context) + "&mode=" + HS5SharedpreferencesUtil.getCarMode(HS5ManualWebActivity.context) + "&haveLocalPackage=" + HS5SharedpreferencesUtil.getHaveLocal(HS5ManualWebActivity.context) + "&version=v" + HS5SharedpreferencesUtil.getVersion(HS5ManualWebActivity.context) + "&upLoad=" + (HS5ManuaConfig.VERSION.equals(HS5SharedpreferencesUtil.getVersion(HS5ManualWebActivity.context)) ? "0" : "1"));
                     }
                 }
+                LogUtil.logError("=======goSetPage========");
                 HS5ManualWebActivity.context.startActivity(intent);
             }
         });
@@ -278,5 +281,7 @@ public class HS5NativeInterface {
             }
         });
     }
+
+
 
 }
