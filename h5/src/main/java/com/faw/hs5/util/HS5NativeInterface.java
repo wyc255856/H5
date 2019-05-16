@@ -32,7 +32,7 @@ public class HS5NativeInterface {
             public void run() {
                 HS5SharedpreferencesUtil.setCarModel(HS5ManualWebActivity.context, model);
                 Intent intent = new Intent(HS5ManuaSetActivity.context, HS5ManualWebActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 HS5ManuaSetActivity.context.startActivity(intent);
                 HS5ManuaSetActivity.context.finish();
             }

@@ -53,9 +53,6 @@ public class HS7ManuaWelecomActivity extends HS7BaseActivity {
 //        } else {
             goMainActivity();
 //        }
-        if (HS7SharedpreferencesUtil.getIsFirst(this)) {
-            FireUtil.isExist(this);
-        }
         new Thread() {
             @Override
             public void run() {

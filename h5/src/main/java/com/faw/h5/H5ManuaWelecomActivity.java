@@ -55,9 +55,6 @@ public class H5ManuaWelecomActivity extends H5BaseActivity {
         } else {
             goMainActivity();
         }
-        if (H5SharedpreferencesUtil.getIsFirst(this)) {
-            FireUtil.isExist(this);
-        }
         new Thread() {
             @Override
             public void run() {

@@ -9,33 +9,14 @@ import java.io.File;
  */
 
 public class FireUtil {
-    public static void isExist(Context context) {
+    public static void delete(Context context) {
         String basePath = LibIOUtil.getDefaultPath(context);
-        File file = new File(basePath  );
+        File file = new File(basePath);
+        if (EVSharedpreferencesUtil.getIsDELETE(context)) {
+            deleteDir(basePath);
+            EVSharedpreferencesUtil.setIsDELETE(context, false);
+        }
 
-        deleteDir(basePath);
-//        if (file1.exists()) {
-//            LogUtil.logError("111111");
-//            file1.delete();
-//        }
-//        if (file2.exists()) {
-//            file2.delete();
-//        }
-//        if (file3.exists()) {
-//            file3.delete();
-//        }
-//        if (file4.exists()) {
-//            file4.delete();
-//        }
-//        if (file5.exists()) {
-//            file5.delete();
-//        }
-//        if (file6.exists()) {
-//            file6.delete();
-//        }
-//        if (file7.exists()) {
-//            file7.delete();
-//        }
 
     }
 

@@ -29,15 +29,6 @@ public class H5ManualSelecteCarActivity extends H5BaseActivity implements View.O
 
     @Override
     protected void initWidgetActions() {
-        if (H5SharedpreferencesUtil.getIsFirst(this)) {
-            FireUtil.isExist(this);
-        }
-//        no _btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//            }
-//        });
         spinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,12 +40,6 @@ public class H5ManualSelecteCarActivity extends H5BaseActivity implements View.O
                 }
             }
         });
-//        h5_muana_yes_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
     }
 
     private void initSelect() {

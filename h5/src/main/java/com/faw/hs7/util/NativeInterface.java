@@ -30,7 +30,7 @@ public class NativeInterface {
             public void run() {
                 HS7SharedpreferencesUtil.setCarModel(HS7ManualWebActivity.context, model);
                 Intent intent = new Intent(HS7ManuaSetActivity.context, HS7ManualWebActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 HS7ManuaSetActivity.context.startActivity(intent);
                 HS7ManuaSetActivity.context.finish();
             }

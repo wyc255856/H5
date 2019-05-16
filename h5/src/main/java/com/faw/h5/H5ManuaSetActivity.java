@@ -94,7 +94,7 @@ public class H5ManuaSetActivity extends Activity {
 //        entry = new DownloadEntry("http://www.haoweisys.com/bentengzixun/pano/pano.zip");
         DownloadConfig.DOWNLOAD_PATH = LibIOUtil.getDefaultPath(this);
 
-        entry.name = LibIOUtil.UPLOAD_ZIP_FILE;
+        entry.name = "h5"+LibIOUtil.UPLOAD_ZIP_FILE;
         error_view = findViewById(R.id.error_view);
         webView = (WebView) findViewById(R.id.web_view);
         progress_text = (H5H5StrokeTextView) findViewById(R.id.progress_text);
@@ -372,7 +372,7 @@ public class H5ManuaSetActivity extends Activity {
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99%");
-                H5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
+                H5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context,"h5"));
                 //H5ManuaSetActivity.downLoad_progress.setProgress(99);
                 new Thread(new Runnable() {
                     @Override
@@ -437,7 +437,7 @@ public class H5ManuaSetActivity extends Activity {
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99%");
-                H5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
+                H5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context,"h5"));
                 //H5ManuaSetActivity.downLoad_progress.setProgress(99);
                 new Thread(new Runnable() {
                     @Override
@@ -446,9 +446,6 @@ public class H5ManuaSetActivity extends Activity {
                         try {
 
 
-                            if (H5SharedpreferencesUtil.getIsFirst(context)) {
-                                FireUtil.isExist(context);
-                            }
 
                             if (!saveFile.exists()) {
                                 return;

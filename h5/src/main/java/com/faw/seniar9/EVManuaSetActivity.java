@@ -99,7 +99,7 @@ public class EVManuaSetActivity extends Activity {
         entry = new DownloadEntry(EVManuaConfig.getManuaDownLoadUrl(this));
         DownloadConfig.DOWNLOAD_PATH = LibIOUtil.getDefaultPath(this);
 
-        entry.name = LibIOUtil.UPLOAD_ZIP_FILE;
+        entry.name = "ev"+LibIOUtil.UPLOAD_ZIP_FILE;
 //        error_view = findViewById(R.id.error_view);
         webView = (WebView) findViewById(R.id.web_view);
         progress_text = (TextView) findViewById(R.id.progress_text);
@@ -377,7 +377,7 @@ public class EVManuaSetActivity extends Activity {
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99");
-                EVManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
+                EVManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context,"ev"));
                 //EVManuaSetActivity.downLoad_progress.setProgress(99);
                 new Thread(new Runnable() {
                     @Override
@@ -445,16 +445,13 @@ public class EVManuaSetActivity extends Activity {
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99");
-                EVManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
+                EVManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context,"ev"));
                 //EVManuaSetActivity.downLoad_progress.setProgress(99);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
 
 
-                        if (EVSharedpreferencesUtil.getIsFirst(context)) {
-                            FireUtil.isExist(context);
-                        }
 
                         if (!saveFile.exists()) {
                             return;

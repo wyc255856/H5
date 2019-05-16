@@ -78,27 +78,15 @@ public class EVManualWebActivity extends Activity {
         //设置当前窗体为全屏显示
         window.setFlags(flag, flag);
         //得到当前界面的装饰视图
-//        if (Build.VERSION.SDK_INT >= 21) {
-//            View decorView = getWindow().getDecorView();
-//            //让应用主题内容占用系统状态栏的空间,注意:下面两个参数必须一起使用 stable 牢固的
-//            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-//            decorView.setSystemUiVisibility(option);
-//            //设置状态栏颜色为透明
-//            getWindow().setStatusBarColor(Color.TRANSPARENT);
-//        }
         //隐藏标题栏
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.hide();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+
         setContentView(R.layout.ev_activity_m_web);
-//        LogUtil.logError("============isServiceRunning==============");
-//        Intent i = new Intent();
-//        i.setClass(this, EVTargetService.class);
-//        startService(i);
 
 
         error_view = findViewById(R.id.error_view);
         webView = (WebView) findViewById(R.id.web_view);
-//        loading_icon = (AppCompatImageView) findViewById(R.id.loading_icon);
         progress_text = (TextView) findViewById(R.id.progress_text);
         downLoad_view = findViewById(R.id.downLoad_view);
         error_alert = findViewById(R.id.error_alert);
@@ -199,28 +187,15 @@ public class EVManualWebActivity extends Activity {
                     view.loadUrl(url);
                     return true;
                 }
-//                if ("0".equals(EVSharedpreferencesUtil.getCarMode(EVManualWebActivity.this))) {
-//                    LogUtil.logError("EVManuaConfig.getManuaUrl(context) = " + EVManuaConfig.getManuaUrl(context));
-//                    view.loadUrl("file:///"+ LibIOUtil.getDefaultPath(context)+"C217_1");
-//                } else {
-//                    LogUtil.logError("EVManuaConfig.getManuaUrl(context) = " + EVManuaConfig.getManuaUrl(context));
-//                    view.loadUrl(EVManuaConfig.getManuaUrl(context));
-////            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
-//                }
                 LogUtil.logError("url = " + url);
                 LogUtil.logError("url = " + EVManuaConfig.getManuaUrl(EVManualWebActivity.this));
-//                if (url.equals(EVManuaConfig.getManuaUrl(EVManualWebActivity.this) + "/") || url.equals("file:///storage/emulated/0/manua/com.wyc.zhangsan.htmlapi/C217_1/index.html")) {
-//                    findViewById(R.id.back_icon).setVisibility(View.GONE);
-//                } else {
-//                    findViewById(R.id.back_icon).setVisibility(View.VISIBLE);
-//                }
                 return false;
             }
         });
         //支持App内部javascript交互
         webView.getSettings().setJavaScriptEnabled(true);
         //自适应屏幕
-//        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         webView.getSettings().setLoadWithOverviewMode(true);
         //设置可以支持缩放
         webView.getSettings().setSupportZoom(true);

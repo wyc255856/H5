@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 
 public class EVSharedpreferencesUtil {
     static String PREFERENCES_NAME = "evshare";
-
+    private static String ISDELETE = "isdelete";
     private static String ISFIRST = "isFirst";
     private static String CAR_MODE = "car_mode";//比较版本更新时间(非强制更新一周一次提示)
     private static String CAR_MODEL = "car_model";//比较版本更新时间(非强制更新一周一次提示)
@@ -61,6 +61,25 @@ public class EVSharedpreferencesUtil {
                 + PREFERENCES_NAME, Activity.MODE_PRIVATE);
         sharedPreferences.edit().putBoolean(ISFIRST, defValue).commit();
     }
+
+
+    //判断是否删除文件
+    public static Boolean getIsDELETE(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(AppUtil.getPackageName(context)
+                + PREFERENCES_NAME, Activity.MODE_PRIVATE);
+        return sharedPreferences.getBoolean(ISDELETE, true);
+    }
+
+    public static void setIsDELETE(Context context, boolean defValue) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(AppUtil.getPackageName(context)
+                + PREFERENCES_NAME, Activity.MODE_PRIVATE);
+        sharedPreferences.edit().putBoolean(ISDELETE, defValue).commit();
+    }
+
+
+
+
+
     public static void setModelLocal(Context context, String carMode) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(AppUtil.getPackageName(context)
                 + PREFERENCES_NAME, Activity.MODE_PRIVATE);

@@ -10,6 +10,7 @@ import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import com.faw.controller.ManuaApi;
 import com.faw.h5.util.LibIOUtil;
 import com.gh1.ghdownload.DownloadConfig;
 import com.gh1.ghdownload.entity.DownloadEntry;
@@ -45,7 +46,7 @@ public class DownloadThread implements Runnable{
 		this.index = index;
 		this.startPos = startPos;
 		this.endPos = endPos;
-		this.path = DownloadConfig.DOWNLOAD_PATH + LibIOUtil.UPLOAD_ZIP_FILE;
+		this.path = DownloadConfig.DOWNLOAD_PATH + ManuaApi.type+LibIOUtil.UPLOAD_ZIP_FILE;
 		this.listener = listener;
 		if (startPos == 0 && endPos == 0) {
             isSingleDownload = true;

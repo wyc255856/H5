@@ -39,9 +39,6 @@ public class HS7ManualSelecteCarActivity extends HS7BaseActivity implements View
 
     @Override
     protected void initWidgetActions() {
-        if (HS7SharedpreferencesUtil.getIsFirst(this)) {
-            FireUtil.isExist(this);
-        }
 //        hs7_no_btn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

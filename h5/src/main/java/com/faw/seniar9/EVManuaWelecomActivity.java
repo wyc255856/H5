@@ -55,9 +55,6 @@ public class EVManuaWelecomActivity extends EVBaseActivity {
         } else {
             goMainActivity();
         }
-        if (EVSharedpreferencesUtil.getIsFirst(this)) {
-            FireUtil.isExist(this);
-        }
         new Thread() {
             @Override
             public void run() {

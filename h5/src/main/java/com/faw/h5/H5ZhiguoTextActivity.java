@@ -435,7 +435,7 @@ public class H5ZhiguoTextActivity extends Activity {
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99%");
-                H5ZhiguoTextActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
+                H5ZhiguoTextActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context,"h5"));
                 //H5ZhiguoTextActivity.downLoad_progress.setProgress(99);
                 new Thread(new Runnable() {
                     @Override

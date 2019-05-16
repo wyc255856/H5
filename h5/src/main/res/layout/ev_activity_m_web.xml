@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/ev_m_home_bg"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"   >
 
     <WebView
         android:id="@+id/web_view"

@@ -67,8 +67,6 @@ public class HS5ManualWebActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-//        OkHttpFinalConfiguration.Builder builder = new OkHttpFinalConfiguration.Builder();
-//        OkHttpFinal.getInstance().init(builder.build());
         Window window = getWindow();
         //隐藏标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -78,25 +76,7 @@ public class HS5ManualWebActivity extends Activity {
         //设置当前窗体为全屏显示
         window.setFlags(flag, flag);
         //得到当前界面的装饰视图
-//        if (Build.VERSION.SDK_INT >= 21) {
-//            View decorView = getWindow().getDecorView();
-//            //让应用主题内容占用系统状态栏的空间,注意:下面两个参数必须一起使用 stable 牢固的
-//            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-//            decorView.setSystemUiVisibility(option);
-//            //设置状态栏颜色为透明
-//            getWindow().setStatusBarColor(Color.TRANSPARENT);
-//        }
-        //隐藏标题栏
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.hide();
         setContentView(R.layout.hs5_activity_web);
-        hideBottomUIMenu();
-//        LogUtil.logError("============isServiceRunning==============");
-//        Intent i = new Intent();
-//        i.setClass(this, HS5TargetService.class);
-//        startService(i);
-
-
         error_view = findViewById(R.id.error_view);
         webView = (WebView) findViewById(R.id.web_view);
 //        loading_icon = (AppCompatImageView) findViewById(R.id.loading_icon);
@@ -221,7 +201,7 @@ public class HS5ManualWebActivity extends Activity {
         //支持App内部javascript交互
         webView.getSettings().setJavaScriptEnabled(true);
         //自适应屏幕
-//        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         webView.getSettings().setLoadWithOverviewMode(true);
         //设置可以支持缩放
         webView.getSettings().setSupportZoom(true);
@@ -468,17 +448,5 @@ public class HS5ManualWebActivity extends Activity {
         }
         loadUrl();
     }
-    protected void hideBottomUIMenu() {
-        //隐藏虚拟按键，并且全屏
-        if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
-            View v = this.getWindow().getDecorView();
-            v.setSystemUiVisibility(View.GONE);
-        } else if (Build.VERSION.SDK_INT >= 19) {
-            //for new api versions.
-            View decorView = getWindow().getDecorView();
-            int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN;
-            decorView.setSystemUiVisibility(uiOptions);
-        }
-    }
+
 }

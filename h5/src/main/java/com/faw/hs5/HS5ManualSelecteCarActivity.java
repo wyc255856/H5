@@ -24,9 +24,6 @@ public class HS5ManualSelecteCarActivity extends HS5BaseActivity implements View
 
     @Override
     protected void initWidgetActions() {
-        if (HS5SharedpreferencesUtil.getIsFirst(this)) {
-            FireUtil.isExist(this);
-        }
     }
 
     private void initSelect() {

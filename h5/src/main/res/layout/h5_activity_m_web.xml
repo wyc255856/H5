@@ -59,8 +59,8 @@
                 android:layout_width="120dp"
                 android:layout_height="60dp"
                 android:layout_gravity="bottom|left"
-                android:layout_marginBottom="30dp"
                 android:layout_marginLeft="30dp"
+                android:layout_marginBottom="30dp"
                 android:background="@mipmap/h5_m_close" />
 
             <ImageView
@@ -68,8 +68,8 @@
                 android:layout_width="120dp"
                 android:layout_height="60dp"
                 android:layout_gravity="right|bottom"
-                android:layout_marginBottom="30dp"
                 android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
                 android:background="@mipmap/h5_muana_reload" />
         </FrameLayout>
 
@@ -148,13 +148,13 @@
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
         android:gravity="center"
-        android:text="下载"
+        android:text="下载下载下载"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 
 </FrameLayout>

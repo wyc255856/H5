@@ -30,7 +30,7 @@ public class NativeInterface {
             public void run() {
                 EVSharedpreferencesUtil.setCarModel(EVManualWebActivity.context, model);
                 Intent intent = new Intent(EVManuaSetActivity.context, EVManualWebActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 EVManuaSetActivity.context.startActivity(intent);
                 EVManuaSetActivity.context.finish();
             }

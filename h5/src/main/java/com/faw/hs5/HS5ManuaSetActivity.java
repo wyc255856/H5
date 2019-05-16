@@ -98,7 +98,7 @@ public class HS5ManuaSetActivity extends Activity {
         entry = new DownloadEntry(HS5ManuaConfig.getManuaDownLoadUrl(this));
         DownloadConfig.DOWNLOAD_PATH = LibIOUtil.getDefaultPath(this);
 
-        entry.name = LibIOUtil.UPLOAD_ZIP_FILE;
+        entry.name = "hs5"+LibIOUtil.UPLOAD_ZIP_FILE;
 //        error_view = findViewById(R.id.error_view);
         webView = (WebView) findViewById(R.id.web_view);
         progress_text = (TextView) findViewById(R.id.progress_text);
@@ -376,7 +376,7 @@ public class HS5ManuaSetActivity extends Activity {
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99");
-                HS5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
+                HS5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context,"hs5"));
                 //HS5ManuaSetActivity.downLoad_progress.setProgress(99);
                 new Thread(new Runnable() {
                     @Override
@@ -444,16 +444,13 @@ public class HS5ManuaSetActivity extends Activity {
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99");
-                HS5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context));
+                HS5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context,"hs5"));
                 //HS5ManuaSetActivity.downLoad_progress.setProgress(99);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
 
 
-                        if (HS5SharedpreferencesUtil.getIsFirst(context)) {
-                            FireUtil.isExist(context);
-                        }
 
                         if (!saveFile.exists()) {
                             return;

@@ -182,10 +182,10 @@ public class LibIOUtil {
     }
 
     // 默认压缩zip路径
-    public static String getDefaultUploadZipPath(Context context) {
+    public static String getDefaultUploadZipPath(Context context,String type) {
         String basePath = getBaseLocalLocation(context);
         String pkgName = AppUtil.getPackageName(context);
-        String path = basePath + FS + NIGHTAPP + FS + pkgName + FS + UPLOAD_ZIP_FILE;
+        String path = basePath + FS + NIGHTAPP + FS + pkgName + FS +type+ UPLOAD_ZIP_FILE;
         if (!isParentDirExist(path)) {
             makeParentDirs(path);
         }

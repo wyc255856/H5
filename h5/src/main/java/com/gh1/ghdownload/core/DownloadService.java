@@ -15,6 +15,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.widget.Toast;
 
+import com.faw.controller.ManuaApi;
 import com.faw.h5.util.LibIOUtil;
 import com.gh1.ghdownload.DownloadConfig;
 import com.gh1.ghdownload.db.DBController;
@@ -267,7 +268,7 @@ public class DownloadService extends Service{
 	
 	private void checkDownloadPath(DownloadEntry entry) {
 		Trace.d("DownloadService==>checkDownloadPath()");
-		File file = new File(DownloadConfig.DOWNLOAD_PATH + LibIOUtil.UPLOAD_ZIP_FILE);
+		File file = new File(DownloadConfig.DOWNLOAD_PATH +ManuaApi.type+ LibIOUtil.UPLOAD_ZIP_FILE);
 		if(file != null && !file.exists()){
 			entry.reset();
 			Trace.d("DownloadService==>checkDownloadPath()#####" + entry.name + "'s cache is not exist, restart download!");

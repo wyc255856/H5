@@ -50,6 +50,7 @@ public class ConnectThread implements Runnable{
 			}
 			isRunning = false;
 		}  catch (Exception e) {
+			e.printStackTrace();
 			Trace.d("ConnectThread==>run()#####" + url + "*****connect exception***" + e.getMessage());
 			isRunning = false;
 			listener.onConnectFaile(e.getMessage());
