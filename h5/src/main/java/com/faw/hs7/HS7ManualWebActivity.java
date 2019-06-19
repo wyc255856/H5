@@ -55,7 +55,6 @@ public class HS7ManualWebActivity extends Activity {
     public static View downLoad_view;
     private boolean isExit = false;
     private String url;
-    //    public AppCompatImageView loading_icon;
 
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -63,8 +62,6 @@ public class HS7ManualWebActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-//        OkHttpFinalConfiguration.Builder builder = new OkHttpFinalConfiguration.Builder();
-//        OkHttpFinal.getInstance().init(builder.build());
         Window window = getWindow();
         //隐藏标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -73,28 +70,11 @@ public class HS7ManualWebActivity extends Activity {
         int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
         //设置当前窗体为全屏显示
         window.setFlags(flag, flag);
-        //得到当前界面的装饰视图
-//        if (Build.VERSION.SDK_INT >= 21) {
-//            View decorView = getWindow().getDecorView();
-//            //让应用主题内容占用系统状态栏的空间,注意:下面两个参数必须一起使用 stable 牢固的
-//            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-//            decorView.setSystemUiVisibility(option);
-//            //设置状态栏颜色为透明
-//            getWindow().setStatusBarColor(Color.TRANSPARENT);
-//        }
-        //隐藏标题栏
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.hide();
         setContentView(R.layout.hs7_activity_web);
-//        LogUtil.logError("============isServiceRunning==============");
-//        Intent i = new Intent();
-//        i.setClass(this, EVTargetService.class);
-//        startService(i);
 
 
         error_view = findViewById(R.id.error_view);
         webView = (WebView) findViewById(R.id.web_view);
-//        loading_icon = (AppCompatImageView) findViewById(R.id.loading_icon);
         progress_text = (TextView) findViewById(R.id.progress_text);
         downLoad_view = findViewById(R.id.downLoad_view);
         error_alert = findViewById(R.id.error_alert);
@@ -104,10 +84,6 @@ public class HS7ManualWebActivity extends Activity {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 super.onProgressChanged(view, newProgress);
-//                if (newProgress == 100) {
-//                    error_view.setVisibility(View.GONE);
-//                    isError = false;
-//                }
             }
         });
         CdCarInfoQueryManager.getInstance().setQueryCarInfoTool(new CdCarInfoQueryManager.QueryCarInfoTool() {
@@ -135,8 +111,6 @@ public class HS7ManualWebActivity extends Activity {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
-//                error_view.setVisibility(View.VISIBLE);
-//                error_alert.setVisibility(View.GONE);
                 webView.setEnabled(false);// 当加载网页的时候将网页进行隐藏
             }
 
@@ -160,9 +134,6 @@ public class HS7ManualWebActivity extends Activity {
 
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-//                view.loadUrl(BrowserJsInject.fullScreenByJs(url));
-//                TextView tv= (TextView) findViewById(R.id.text);
-//                tv.setText("加载完成");
                 webView.loadUrl("javascript:itemLoaderHide()");
                 if (isError) {
 
@@ -195,21 +166,8 @@ public class HS7ManualWebActivity extends Activity {
                     view.loadUrl(url);
                     return true;
                 }
-//                if ("0".equals(HS7SharedpreferencesUtil.getCarMode(HS7ManualWebActivity.this))) {
-//                    LogUtil.logError("HS7ManuaConfig.getManuaUrl(context) = " + HS7ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl("file:///"+ LibIOUtil.getDefaultPath(context)+"C217_1");
-//                } else {
-//                    LogUtil.logError("HS7ManuaConfig.getManuaUrl(context) = " + HS7ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl(HS7ManuaConfig.getManuaUrl(context));
-////            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
-//                }
                 LogUtil.logError("url = " + url);
                 LogUtil.logError("url = " + HS7ManuaConfig.getManuaUrl(HS7ManualWebActivity.this));
-//                if (url.equals(HS7ManuaConfig.getManuaUrl(HS7ManualWebActivity.this) + "/") || url.equals("file:///storage/emulated/0/manua/com.wyc.zhangsan.htmlapi/C217_1/index.html")) {
-//                    findViewById(R.id.back_icon).setVisibility(View.GONE);
-//                } else {
-//                    findViewById(R.id.back_icon).setVisibility(View.VISIBLE);
-//                }
                 return false;
             }
         });
@@ -269,36 +227,22 @@ public class HS7ManualWebActivity extends Activity {
                     error_view.setVisibility(View.GONE);
 
                     webView.goBack(); // 后退
-//                    if (webView.canGoBack()) {
-//                        findViewById(R.id.back_icon).setVisibility(View.VISIBLE);
-//                    } else {
-//                        findViewById(R.id.back_icon).setVisibility(View.GONE);
-//                    }
                 } else {
                     exit();
                 }
             }
         });
-//        try {
-//            initSVG();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
     private void loadUrl() {
-//        webView.loadUrl("file:///android_asset/index.html");
 
         if ("0".equals(HS7SharedpreferencesUtil.getCarMode(this))) {
             LogUtil.logError("HS7ManuaConfig.getManuaUrl(context) = " + "file://" + LibIOUtil.getDefaultPath(context) + HS7SharedpreferencesUtil.getModelLocal(HS7ManualWebActivity.this) + "/index.html" + "?upLoad=" + (HS7ManuaConfig.VERSION.equals(HS7SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
             webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + HS7SharedpreferencesUtil.getModelLocal(HS7ManualWebActivity.this) + "/index.html" + "?upLoad=" + (HS7ManuaConfig.VERSION.equals(HS7SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
         } else {
             LogUtil.logError("HS7ManuaConfig.getManuaUrl(context) = " + HS7ManuaConfig.getManuaUrl(context));
-//            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + "C217_1/index.html");
             webView.loadUrl(HS7ManuaConfig.getManuaUrl(context) + "?upLoad=" + (HS7ManuaConfig.VERSION.equals(HS7SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
-//            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
         }
-//        webView.loadUrl("http://www.haoweisys.com/EVTEST/EVTEST_1/"+"?upLoad=1");
     }
 
 
@@ -307,17 +251,11 @@ public class HS7ManualWebActivity extends Activity {
 
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getRepeatCount() == 0) {
-//            HS7ManualWebActivity.webView.loadUrl("javascript:closeLocalStorage()");
             if (webView.canGoBack()) {
                 error_view.setVisibility(View.GONE);
                 LogUtil.logError("===============");
                 HS7ManualWebActivity.webView.loadUrl("javascript:closeLocalStorage()");
                 webView.goBack(); // 后退
-//                if (webView.canGoBack()) {
-//                    findViewById(R.id.back_icon).setVisibility(View.VISIBLE);
-//                } else {
-//                    findViewById(R.id.back_icon).setVisibility(View.GONE);
-//                }
 
                 return true;
             } else {
@@ -332,7 +270,7 @@ public class HS7ManualWebActivity extends Activity {
         if (isExit) {
             HS7ManualWebActivity.webView.loadUrl("javascript:RemoveLocalStorage()");
             finish();
-            System.exit(0);
+//            System.exit(0);
         } else {
             isExit = true;
             Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
@@ -342,15 +280,6 @@ public class HS7ManualWebActivity extends Activity {
 
     private Canvas canvas = new Canvas();
 
-//    private void initSVG() throws IOException {
-//        SVG svg = new SVGBuilder().readFromAsset(getAssets(), "loading.svg").build();
-//
-//        canvas.drawPicture(svg.getPicture());
-//        //github上的svg.createDrawable()没有了,现在只有这个方法
-//        PictureDrawable drawable = svg.getDrawable();
-//        drawable.draw(canvas);
-//        loading_icon.setImageDrawable(drawable);
-//    }
 
     private Handler exitHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -395,7 +324,6 @@ public class HS7ManualWebActivity extends Activity {
                 continue;
             }
             //输出文件路径信息
-//            System.out.println(outPath);
             HS7ManuaSetActivity.context.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -420,43 +348,8 @@ public class HS7ManualWebActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-//        CdCarInfoQueryManager.getInstance().setQueryCarInfoTool(new CdCarInfoQueryManager.QueryCarInfoTool() {
-//            @Override
-//            public boolean answerContent(String feature, String extra) {
-//
-//                LogUtil.logError("feature = " + feature);
-//                LogUtil.logError("extra = " + extra);
-//
-//                Intent intent = new Intent(HS7ManualWebActivity.context, HS7ManuaSetActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//                intent.putExtra("url", HS7ManuaConfig.getManuaUrl(HS7ManualWebActivity.context) + "/pages/voiceSearch.html?model=C217&car_version=" + HS7SharedpreferencesUtil.getCarModel(context) + "&keyWord=" + feature.replaceAll(" ", ","));
-//                HS7ManualWebActivity.context.startActivity(intent);
-//                return false;
-//            }
-//        });
     }
 
-    //    @Override
-//
-//    protected void onDestroy() {
-//
-//        if (webView != null) {
-//
-//            webView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
-//
-//            webView.clearHistory();
-//
-//            ((ViewGroup) webView.getParent()).removeView(webView);
-//
-//            webView.destroy();
-//
-//            webView = null;
-//
-//        }
-//
-//        super.onDestroy();
-//
-//    }
     public void resetUI() {
         while (webView.canGoBack()) {
             webView.goBack();

@@ -99,7 +99,7 @@ public class HS7ManualSelecteCarActivity extends HS7BaseActivity implements View
             HS7SharedpreferencesUtil.setCarModel(HS7ManualSelecteCarActivity.this, "HS7_2");
         } else if (str.equals(texr3Str)) {
             HS7SharedpreferencesUtil.setCarModel(HS7ManualSelecteCarActivity.this, "HS7_3");
-        } else if (str.equals(texr5Str)) {
+        } else if (str.equals(texr4Str)) {
             HS7SharedpreferencesUtil.setCarModel(HS7ManualSelecteCarActivity.this, "HS7_4");
         } else if (str.equals(texr5Str)) {
             HS7SharedpreferencesUtil.setCarModel(HS7ManualSelecteCarActivity.this, "HS7_5");

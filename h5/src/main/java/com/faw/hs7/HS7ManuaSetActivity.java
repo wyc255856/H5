@@ -177,14 +177,6 @@ public class HS7ManuaSetActivity extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
-//                if ("0".equals(HS7SharedpreferencesUtil.getCarMode(HS7ManualWebActivity.this))) {
-//                    LogUtil.logError("HS7ManuaConfig.getManuaUrl(context) = " + HS7ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl("file:///"+ LibIOUtil.getDefaultPath(context)+"C217_1");
-//                } else {
-//                    LogUtil.logError("HS7ManuaConfig.getManuaUrl(context) = " + HS7ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl(HS7ManuaConfig.getManuaUrl(context));
-////            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
-//                }
                 return true;
             }
         });
@@ -229,10 +221,6 @@ public class HS7ManuaSetActivity extends Activity {
         findViewById(R.id.reload_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                error_view.setVisibility(View.VISIBLE);
-//                error_alert.setVisibility(View.GONE);
-//                isError = false;
-//                webView.reload();
             }
         });
         findViewById(R.id.back_icon).setOnClickListener(new View.OnClickListener() {

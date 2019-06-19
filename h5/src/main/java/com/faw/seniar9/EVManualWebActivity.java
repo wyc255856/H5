@@ -56,7 +56,6 @@ public class EVManualWebActivity extends Activity {
     public static View downLoad_view;
     private boolean isExit = false;
     private String url;
-    //    public AppCompatImageView loading_icon;
 
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
@@ -67,8 +66,6 @@ public class EVManualWebActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-//        OkHttpFinalConfiguration.Builder builder = new OkHttpFinalConfiguration.Builder();
-//        OkHttpFinal.getInstance().init(builder.build());
         Window window = getWindow();
         //隐藏标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -96,10 +93,6 @@ public class EVManualWebActivity extends Activity {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 super.onProgressChanged(view, newProgress);
-//                if (newProgress == 100) {
-//                    error_view.setVisibility(View.GONE);
-//                    isError = false;
-//                }
             }
         });
         CdCarInfoQueryManager.getInstance().setQueryCarInfoTool(new CdCarInfoQueryManager.QueryCarInfoTool() {
@@ -248,36 +241,22 @@ public class EVManualWebActivity extends Activity {
                     error_view.setVisibility(View.GONE);
 
                     webView.goBack(); // 后退
-//                    if (webView.canGoBack()) {
-//                        findViewById(R.id.back_icon).setVisibility(View.VISIBLE);
-//                    } else {
-//                        findViewById(R.id.back_icon).setVisibility(View.GONE);
-//                    }
                 } else {
                     exit();
                 }
             }
         });
-//        try {
-//            initSVG();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
     private void loadUrl() {
-//        webView.loadUrl("file:///android_asset/index.html");
 
         if ("0".equals(EVSharedpreferencesUtil.getCarMode(this))) {
             LogUtil.logError("EVManuaConfig.getManuaUrl(context) = " + "file://" + LibIOUtil.getDefaultPath(context) + EVSharedpreferencesUtil.getModelLocal(EVManualWebActivity.this) + "/index.html" + "?upLoad=" + (EVManuaConfig.VERSION.equals(EVSharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
             webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + EVSharedpreferencesUtil.getModelLocal(EVManualWebActivity.this) + "/index.html" + "?upLoad=" + (EVManuaConfig.VERSION.equals(EVSharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
         } else {
             LogUtil.logError("EVManuaConfig.getManuaUrl(context) = " + EVManuaConfig.getManuaUrl(context));
-//            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + "C217_1/index.html");
             webView.loadUrl(EVManuaConfig.getManuaUrl(context) + "?upLoad=" + (EVManuaConfig.VERSION.equals(EVSharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
-//            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
         }
-//        webView.loadUrl("http://www.haoweisys.com/EVTEST/EVTEST_1/"+"?upLoad=1");
     }
 
 
@@ -286,17 +265,11 @@ public class EVManualWebActivity extends Activity {
 
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getRepeatCount() == 0) {
-//            EVManualWebActivity.webView.loadUrl("javascript:closeLocalStorage()");
             if (webView.canGoBack()) {
                 error_view.setVisibility(View.GONE);
                 LogUtil.logError("===============");
                 EVManualWebActivity.webView.loadUrl("javascript:closeLocalStorage()");
                 webView.goBack(); // 后退
-//                if (webView.canGoBack()) {
-//                    findViewById(R.id.back_icon).setVisibility(View.VISIBLE);
-//                } else {
-//                    findViewById(R.id.back_icon).setVisibility(View.GONE);
-//                }
 
                 return true;
             } else {
@@ -311,7 +284,7 @@ public class EVManualWebActivity extends Activity {
         if (isExit) {
             EVManualWebActivity.webView.loadUrl("javascript:RemoveLocalStorage()");
             finish();
-            System.exit(0);
+//            System.exit(0);
         } else {
             isExit = true;
             Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
@@ -321,15 +294,6 @@ public class EVManualWebActivity extends Activity {
 
     private Canvas canvas = new Canvas();
 
-//    private void initSVG() throws IOException {
-//        SVG svg = new SVGBuilder().readFromAsset(getAssets(), "loading.svg").build();
-//
-//        canvas.drawPicture(svg.getPicture());
-//        //github上的svg.createDrawable()没有了,现在只有这个方法
-//        PictureDrawable drawable = svg.getDrawable();
-//        drawable.draw(canvas);
-//        loading_icon.setImageDrawable(drawable);
-//    }
 
     private Handler exitHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -399,43 +363,8 @@ public class EVManualWebActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-//        CdCarInfoQueryManager.getInstance().setQueryCarInfoTool(new CdCarInfoQueryManager.QueryCarInfoTool() {
-//            @Override
-//            public boolean answerContent(String feature, String extra) {
-//
-//                LogUtil.logError("feature = " + feature);
-//                LogUtil.logError("extra = " + extra);
-//
-//                Intent intent = new Intent(EVManualWebActivity.context, EVManuaSetActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//                intent.putExtra("url", EVManuaConfig.getManuaUrl(EVManualWebActivity.context) + "/pages/voiceSearch.html?model=C217&car_version=" + EVSharedpreferencesUtil.getCarModel(context) + "&keyWord=" + feature.replaceAll(" ", ","));
-//                EVManualWebActivity.context.startActivity(intent);
-//                return false;
-//            }
-//        });
     }
 
-    //    @Override
-//
-//    protected void onDestroy() {
-//
-//        if (webView != null) {
-//
-//            webView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
-//
-//            webView.clearHistory();
-//
-//            ((ViewGroup) webView.getParent()).removeView(webView);
-//
-//            webView.destroy();
-//
-//            webView = null;
-//
-//        }
-//
-//        super.onDestroy();
-//
-//    }
     public void resetUI() {
         while (webView.canGoBack()) {
             webView.goBack();

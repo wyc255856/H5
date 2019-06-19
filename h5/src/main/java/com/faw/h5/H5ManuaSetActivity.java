@@ -140,7 +140,7 @@ public class H5ManuaSetActivity extends Activity {
                 super.onPageStarted(view, url, favicon);
 //                error_view.setVisibility(View.VISIBLE);
 //                error_alert.setVisibility(View.GONE);
-                webView.setEnabled(false);// 当加载网页的时候将网页进行隐藏
+//                webView.setEnabled(false);// 当加载网页的时候将网页进行隐藏
             }
 
             @Override
@@ -174,14 +174,6 @@ public class H5ManuaSetActivity extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
-//                if ("0".equals(H5SharedpreferencesUtil.getCarMode(H5ManualWebActivity.this))) {
-//                    LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + H5ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl("file:///"+ LibIOUtil.getDefaultPath(context)+"C217_1");
-//                } else {
-//                    LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + H5ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl(H5ManuaConfig.getManuaUrl(context));
-////            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
-//                }
                 return true;
             }
         });

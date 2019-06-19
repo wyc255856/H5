@@ -120,7 +120,7 @@ public class H5ZhiguoTextActivity extends Activity {
                 super.onPageStarted(view, url, favicon);
 //                error_view.setVisibility(View.VISIBLE);
 //                error_alert.setVisibility(View.GONE);
-                webView.setEnabled(false);// 当加载网页的时候将网页进行隐藏
+//                webView.setEnabled(false);// 当加载网页的时候将网页进行隐藏
             }
 
             @Override
@@ -320,7 +320,7 @@ public class H5ZhiguoTextActivity extends Activity {
         if (isExit) {
             H5ManualWebActivity.webView.loadUrl("javascript:RemoveLocalStorage()");
             finish();
-            System.exit(0);
+//            System.exit(0);
         } else {
             isExit = true;
             Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();

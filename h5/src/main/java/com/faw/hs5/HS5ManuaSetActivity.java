@@ -80,8 +80,6 @@ public class HS5ManuaSetActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-//        OkHttpFinalConfiguration.Builder builder = new OkHttpFinalConfiguration.Builder();
-//        OkHttpFinal.getInstance().init(builder.build());
         window = getWindow();
         //隐藏标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -91,15 +89,11 @@ public class HS5ManuaSetActivity extends Activity {
         int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
         //设置当前窗体为全屏显示
         window.setFlags(flag, flag);
-//        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.HONEYCOMB){
-//            webView.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
-//        }
         setContentView(R.layout.hs5_activity_web);
         entry = new DownloadEntry(HS5ManuaConfig.getManuaDownLoadUrl(this));
         DownloadConfig.DOWNLOAD_PATH = LibIOUtil.getDefaultPath(this);
 
-        entry.name = "hs5"+LibIOUtil.UPLOAD_ZIP_FILE;
-//        error_view = findViewById(R.id.error_view);
+        entry.name = "hs5" + LibIOUtil.UPLOAD_ZIP_FILE;
         webView = (WebView) findViewById(R.id.web_view);
         progress_text = (TextView) findViewById(R.id.progress_text);
         download_text = (TextView) findViewById(R.id.download_text);
@@ -144,20 +138,13 @@ public class HS5ManuaSetActivity extends Activity {
                 super.onPageStarted(view, url, favicon);
 //                error_view.setVisibility(View.VISIBLE);
 //                error_alert.setVisibility(View.GONE);
-                webView.setEnabled(false);// 当加载网页的时候将网页进行隐藏
+//                webView.setEnabled(false);// 当加载网页的时候将网页进行隐藏
             }
 
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                 super.onReceivedError(view, request, error);
                 isError = true;
-//                if (isError) {
-//                    error_view.setVisibility(View.VISIBLE);
-//                    error_alert.setVisibility(View.VISIBLE);
-//                    webView.setEnabled(true);// 当加载网页的时候将网页进行隐藏
-//                } else {
-//                    error_view.setVisibility(View.GONE);
-//                }
             }
 
 
@@ -166,26 +153,11 @@ public class HS5ManuaSetActivity extends Activity {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 webView.loadUrl("javascript:itemLoaderHide()");
-//                if (isError) {
-//                    error_view.setVisibility(View.VISIBLE);
-//                    error_alert.setVisibility(View.VISIBLE);
-//                    webView.setEnabled(true);// 当加载网页的时候将网页进行隐藏
-//                } else {
-//                    error_view.setVisibility(View.GONE);
-//                }
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
-//                if ("0".equals(HS5SharedpreferencesUtil.getCarMode(HS5ManualWebActivity.this))) {
-//                    LogUtil.logError("HS5ManuaConfig.getManuaUrl(context) = " + HS5ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl("file:///"+ LibIOUtil.getDefaultPath(context)+"C217_1");
-//                } else {
-//                    LogUtil.logError("HS5ManuaConfig.getManuaUrl(context) = " + HS5ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl(HS5ManuaConfig.getManuaUrl(context));
-////            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
-//                }
                 return true;
             }
         });
@@ -222,7 +194,6 @@ public class HS5ManuaSetActivity extends Activity {
         findViewById(R.id.close_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-// 为Intent设置Action、Category属性
 
                 finish();
             }
@@ -230,10 +201,6 @@ public class HS5ManuaSetActivity extends Activity {
         findViewById(R.id.reload_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                error_view.setVisibility(View.VISIBLE);
-//                error_alert.setVisibility(View.GONE);
-//                isError = false;
-//                webView.reload();
             }
         });
         findViewById(R.id.back_icon).setOnClickListener(new View.OnClickListener() {
@@ -247,7 +214,6 @@ public class HS5ManuaSetActivity extends Activity {
     private void loadUrl() {
         LogUtil.logError("url = " + url);
         webView.loadUrl(url);
-//        webView.loadUrl("http://www.haoweisys.com/C217Two/pages/set.html?model=" + HS5SharedpreferencesUtil.getCarModel(HS5ManualWebActivity.context) + "&mode=" + HS5SharedpreferencesUtil.getCarMode(HS5ManualWebActivity.context) + "&haveLocalPackage=" + HS5SharedpreferencesUtil.getHaveLocal(HS5ManualWebActivity.context)+"&upLoad=1"+"&version=v"+HS5SharedpreferencesUtil.getVersion(this));
     }
 
 
@@ -376,7 +342,7 @@ public class HS5ManuaSetActivity extends Activity {
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99");
-                HS5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context,"hs5"));
+                HS5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context, "hs5"));
                 //HS5ManuaSetActivity.downLoad_progress.setProgress(99);
                 new Thread(new Runnable() {
                     @Override
@@ -444,12 +410,11 @@ public class HS5ManuaSetActivity extends Activity {
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99");
-                HS5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context,"hs5"));
+                HS5ManuaSetActivity.saveFile = new File(LibIOUtil.getDefaultUploadZipPath(context, "hs5"));
                 //HS5ManuaSetActivity.downLoad_progress.setProgress(99);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-
 
 
                         if (!saveFile.exists()) {
@@ -485,8 +450,6 @@ public class HS5ManuaSetActivity extends Activity {
                 downLoad_progress.setProgress(data.percent);
                 progress_text.setText(data.percent + "");
             }
-//                entry = data;
-//                showText.setText(entry.toString());
         }
     };
 }

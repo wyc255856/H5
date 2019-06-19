@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -48,7 +49,6 @@ import java.util.Enumeration;
 public class HS5ManualWebActivity extends Activity {
     public static WebView webView;
     public static Activity context;
-
     private View error_view;
     private View error_alert;
     boolean isError = false;
@@ -56,7 +56,6 @@ public class HS5ManualWebActivity extends Activity {
     public static View downLoad_view;
     private boolean isExit = false;
     private String url;
-    //    public AppCompatImageView loading_icon;
 
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
@@ -89,10 +88,6 @@ public class HS5ManualWebActivity extends Activity {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 super.onProgressChanged(view, newProgress);
-//                if (newProgress == 100) {
-//                    error_view.setVisibility(View.GONE);
-//                    isError = false;
-//                }
             }
         });
         CdCarInfoQueryManager.getInstance().setQueryCarInfoTool(new CdCarInfoQueryManager.QueryCarInfoTool() {
@@ -114,15 +109,11 @@ public class HS5ManualWebActivity extends Activity {
                 return false;
             }
         });
-//        ToastUtils.show("设置电子手册监听");
         url = getIntent().getStringExtra("url");
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
-//                error_view.setVisibility(View.VISIBLE);
-//                error_alert.setVisibility(View.GONE);
-                webView.setEnabled(false);// 当加载网页的时候将网页进行隐藏
             }
 
             @Override
@@ -133,7 +124,7 @@ public class HS5ManualWebActivity extends Activity {
                     if (webView.getUrl().equals(HS5ManuaConfig.getManuaUrl(HS5ManualWebActivity.this) + "?upLoad=" + (HS5ManuaConfig.VERSION.equals(HS5SharedpreferencesUtil.getVersion(context)) ? "0" : "1"))) {
                         error_view.setVisibility(View.VISIBLE);
                         error_alert.setVisibility(View.VISIBLE);
-                        webView.setEnabled(true);// 当加载网页的时候将网页进行隐藏
+//                        webView.setEnabled(true);// 当加载网页的时候将网页进行隐藏
                     }
                 } else {
                     error_view.setVisibility(View.GONE);
@@ -145,16 +136,12 @@ public class HS5ManualWebActivity extends Activity {
 
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-//                view.loadUrl(BrowserJsInject.fullScreenByJs(url));
-//                TextView tv= (TextView) findViewById(R.id.text);
-//                tv.setText("加载完成");
                 webView.loadUrl("javascript:itemLoaderHide()");
                 if (isError) {
 
                     if (webView.getUrl().equals(HS5ManuaConfig.getManuaUrl(HS5ManualWebActivity.this) + "?upLoad=" + (HS5ManuaConfig.VERSION.equals(HS5SharedpreferencesUtil.getVersion(context)) ? "0" : "1"))) {
                         error_view.setVisibility(View.VISIBLE);
                         error_alert.setVisibility(View.VISIBLE);
-                        webView.setEnabled(true);// 当加载网页的时候将网页进行隐藏
                     }
                 } else {
                     error_view.setVisibility(View.GONE);
@@ -180,21 +167,8 @@ public class HS5ManualWebActivity extends Activity {
                     view.loadUrl(url);
                     return true;
                 }
-//                if ("0".equals(HS5SharedpreferencesUtil.getCarMode(HS5ManualWebActivity.this))) {
-//                    LogUtil.logError("HS5ManuaConfig.getManuaUrl(context) = " + HS5ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl("file:///"+ LibIOUtil.getDefaultPath(context)+"C217_1");
-//                } else {
-//                    LogUtil.logError("HS5ManuaConfig.getManuaUrl(context) = " + HS5ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl(HS5ManuaConfig.getManuaUrl(context));
-////            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
-//                }
                 LogUtil.logError("url = " + url);
                 LogUtil.logError("url = " + HS5ManuaConfig.getManuaUrl(HS5ManualWebActivity.this));
-//                if (url.equals(HS5ManuaConfig.getManuaUrl(HS5ManualWebActivity.this) + "/") || url.equals("file:///storage/emulated/0/manua/com.wyc.zhangsan.htmlapi/C217_1/index.html")) {
-//                    findViewById(R.id.back_icon).setVisibility(View.GONE);
-//                } else {
-//                    findViewById(R.id.back_icon).setVisibility(View.VISIBLE);
-//                }
                 return false;
             }
         });
@@ -209,7 +183,6 @@ public class HS5ManualWebActivity extends Activity {
         webView.getSettings().setUseWideViewPort(true);
         //设置是否出现缩放工具
         webView.getSettings().setBuiltInZoomControls(true);
-
         webView.setLayerType(View.LAYER_TYPE_NONE, null);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setPluginState(WebSettings.PluginState.ON);
@@ -217,10 +190,7 @@ public class HS5ManualWebActivity extends Activity {
         webView.getSettings().setAllowContentAccess(true);
         webView.getSettings().setAllowFileAccessFromFileURLs(true);
         webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
-
         webView.addJavascriptInterface(new HS5NativeInterface(), "app");
-
-
         webView.getSettings().setDomStorageEnabled(true);
         webView.getSettings().setAppCacheMaxSize(1024 * 1024 * 8);
         String appCachePath = getApplicationContext().getCacheDir().getAbsolutePath();
@@ -264,6 +234,22 @@ public class HS5ManualWebActivity extends Activity {
                 }
             }
         });
+        webView.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_UP:
+                        LogUtil.logError("!webView.hasFocus = " + !webView.hasFocus());
+                        if (!webView.hasFocus()) {
+                            v.requestFocusFromTouch();
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
 //        try {
 //            initSVG();
 //        } catch (IOException e) {
@@ -272,18 +258,14 @@ public class HS5ManualWebActivity extends Activity {
     }
 
     private void loadUrl() {
-//        webView.loadUrl("file:///android_asset/index.html");
 
         if ("0".equals(HS5SharedpreferencesUtil.getCarMode(this))) {
             LogUtil.logError("HS5ManuaConfig.getManuaUrl(context) = " + "file://" + LibIOUtil.getDefaultPath(context) + HS5SharedpreferencesUtil.getModelLocal(HS5ManualWebActivity.this) + "/index.html" + "?upLoad=" + (HS5ManuaConfig.VERSION.equals(HS5SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
             webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + HS5SharedpreferencesUtil.getModelLocal(HS5ManualWebActivity.this) + "/index.html" + "?upLoad=" + (HS5ManuaConfig.VERSION.equals(HS5SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
         } else {
             LogUtil.logError("HS5ManuaConfig.getManuaUrl(context) = " + HS5ManuaConfig.getManuaUrl(context));
-//            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + "C217_1/index.html");
             webView.loadUrl(HS5ManuaConfig.getManuaUrl(context) + "?upLoad=" + (HS5ManuaConfig.VERSION.equals(HS5SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
-//            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
         }
-//        webView.loadUrl("http://www.haoweisys.com/EVTEST/EVTEST_1/"+"?upLoad=1");
     }
 
 
@@ -292,17 +274,11 @@ public class HS5ManualWebActivity extends Activity {
 
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getRepeatCount() == 0) {
-//            HS5ManualWebActivity.webView.loadUrl("javascript:closeLocalStorage()");
             if (webView.canGoBack()) {
                 error_view.setVisibility(View.GONE);
                 LogUtil.logError("===============");
                 HS5ManualWebActivity.webView.loadUrl("javascript:closeLocalStorage()");
                 webView.goBack(); // 后退
-//                if (webView.canGoBack()) {
-//                    findViewById(R.id.back_icon).setVisibility(View.VISIBLE);
-//                } else {
-//                    findViewById(R.id.back_icon).setVisibility(View.GONE);
-//                }
 
                 return true;
             } else {
@@ -317,7 +293,7 @@ public class HS5ManualWebActivity extends Activity {
         if (isExit) {
             HS5ManualWebActivity.webView.loadUrl("javascript:RemoveLocalStorage()");
             finish();
-            System.exit(0);
+//            System.exit(0);
         } else {
             isExit = true;
             Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
@@ -327,15 +303,6 @@ public class HS5ManualWebActivity extends Activity {
 
     private Canvas canvas = new Canvas();
 
-//    private void initSVG() throws IOException {
-//        SVG svg = new SVGBuilder().readFromAsset(getAssets(), "loading.svg").build();
-//
-//        canvas.drawPicture(svg.getPicture());
-//        //github上的svg.createDrawable()没有了,现在只有这个方法
-//        PictureDrawable drawable = svg.getDrawable();
-//        drawable.draw(canvas);
-//        loading_icon.setImageDrawable(drawable);
-//    }
 
     private Handler exitHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -405,43 +372,8 @@ public class HS5ManualWebActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-//        CdCarInfoQueryManager.getInstance().setQueryCarInfoTool(new CdCarInfoQueryManager.QueryCarInfoTool() {
-//            @Override
-//            public boolean answerContent(String feature, String extra) {
-//
-//                LogUtil.logError("feature = " + feature);
-//                LogUtil.logError("extra = " + extra);
-//
-//                Intent intent = new Intent(HS5ManualWebActivity.context, HS5ManuaSetActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//                intent.putExtra("url", HS5ManuaConfig.getManuaUrl(HS5ManualWebActivity.context) + "/pages/voiceSearch.html?model=C217&car_version=" + HS5SharedpreferencesUtil.getCarModel(context) + "&keyWord=" + feature.replaceAll(" ", ","));
-//                HS5ManualWebActivity.context.startActivity(intent);
-//                return false;
-//            }
-//        });
     }
 
-    //    @Override
-//
-//    protected void onDestroy() {
-//
-//        if (webView != null) {
-//
-//            webView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
-//
-//            webView.clearHistory();
-//
-//            ((ViewGroup) webView.getParent()).removeView(webView);
-//
-//            webView.destroy();
-//
-//            webView = null;
-//
-//        }
-//
-//        super.onDestroy();
-//
-//    }
     public void resetUI() {
         while (webView.canGoBack()) {
             webView.goBack();

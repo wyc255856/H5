@@ -110,34 +110,14 @@ public class H5ManualWebActivity extends Activity {
                     intent.putExtra("url", "file://" + LibIOUtil.getDefaultPath(H5ManualWebActivity.context) + H5SharedpreferencesUtil.getModelLocal(H5ManualWebActivity.context) + "/pages/setting.html" + "?model=" + H5SharedpreferencesUtil.getCarModel(H5ManualWebActivity.context) + "&mode=" + H5SharedpreferencesUtil.getCarMode(H5ManualWebActivity.context) + "&haveLocalPackage=" + H5SharedpreferencesUtil.getHaveLocal(H5ManualWebActivity.context) + "&version=v" + H5SharedpreferencesUtil.getVersion(H5ManualWebActivity.context) + "&upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(H5ManualWebActivity.context)) ? "0" : "1"));
 
                 }
-//                Intent intent = new Intent(H5ManualWebActivity.context, ManuaARActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 H5ManualWebActivity.context.startActivity(intent);
             }
         });
-//        CdCarInfoQueryManager.getInstance().setQueryCarInfoTool(new CdCarInfoQueryManager.QueryCarInfoTool() {
-//            @Override
-//            public boolean answerContent(String feature, String extra) {
-//
-//                LogUtil.logError("feature = " + feature);
-//                LogUtil.logError("extra = " + extra);
-//
-//                Intent intent = new Intent(H5ManualWebActivity.context, H5ManuaSetActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//                intent.putExtra("url", H5ManuaConfig.getManuaUrl(H5ManualWebActivity.context) + "/pages/voiceSearch.html?model=C217&car_version=" + H5SharedpreferencesUtil.getCarModel(context) + "&keyWord=" + feature.replaceAll(" ", ","));
-//                H5ManualWebActivity.context.startActivity(intent);
-//                return false;
-//            }
-//        });
-//        ToastUtils.show("设置电子手册监听");
         url = getIntent().getStringExtra("url");
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
-//                error_view.setVisibility(View.VISIBLE);
-//                error_alert.setVisibility(View.GONE);
-                webView.setEnabled(false);// 当加载网页的时候将网页进行隐藏
             }
 
             @Override
@@ -160,9 +140,6 @@ public class H5ManualWebActivity extends Activity {
 
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-//                view.loadUrl(BrowserJsInject.fullScreenByJs(url));
-//                TextView tv= (TextView) findViewById(R.id.text);
-//                tv.setText("加载完成");
                 if (isError) {
 
                     if (webView.getUrl().equals(H5ManuaConfig.getManuaUrl(H5ManualWebActivity.this) + "?upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(context)) ? "0" : "1"))) {
@@ -194,21 +171,8 @@ public class H5ManualWebActivity extends Activity {
                     view.loadUrl(url);
                     return true;
                 }
-//                if ("0".equals(H5SharedpreferencesUtil.getCarMode(H5ManualWebActivity.this))) {
-//                    LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + H5ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl("file:///"+ LibIOUtil.getDefaultPath(context)+"C217_1");
-//                } else {
-//                    LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + H5ManuaConfig.getManuaUrl(context));
-//                    view.loadUrl(H5ManuaConfig.getManuaUrl(context));
-////            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
-//                }
                 LogUtil.logError("url = " + url);
                 LogUtil.logError("url = " + H5ManuaConfig.getManuaUrl(H5ManualWebActivity.this));
-//                if (url.equals(H5ManuaConfig.getManuaUrl(H5ManualWebActivity.this) + "/") || url.equals("file:///storage/emulated/0/manua/com.wyc.zhangsan.htmlapi/C217_1/index.html")) {
-//                    findViewById(R.id.back_icon).setVisibility(View.GONE);
-//                } else {
-//                    findViewById(R.id.back_icon).setVisibility(View.VISIBLE);
-//                }
                 return false;
             }
         });
@@ -293,18 +257,9 @@ public class H5ManualWebActivity extends Activity {
             webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + H5SharedpreferencesUtil.getModelLocal(H5ManualWebActivity.this) + "/index.html" + "?upLoad=false");// + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1")
         } else {
             LogUtil.logError("H5ManuaConfig.getManuaUrl(context) = " + H5ManuaConfig.getManuaUrl(context));
-//            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + "C217_1/index.html");
             webView.loadUrl(H5ManuaConfig.getManuaUrl(context) + "?upLoad=0");//+ (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1")
-//            webView.loadUrl("http://www.haoweisys.com/C217/C217_1");
         }
 
-//        if ("0".equals(H5SharedpreferencesUtil.getCarMode(this))) {
-//            webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) +  "pano/index.html" + "?upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
-//        } else {
-//
-//            webView.loadUrl("http://www.haoweisys.com/bentengzixun/pano/");
-//        }
-//        webView.loadUrl("http://www.haoweisys.com/CarEV/");
     }
 
 
@@ -338,7 +293,7 @@ public class H5ManualWebActivity extends Activity {
         if (isExit) {
             H5ManualWebActivity.webView.loadUrl("javascript:RemoveLocalStorage()");
             finish();
-            System.exit(0);
+//            System.exit(0);
         } else {
             isExit = true;
             Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
@@ -348,15 +303,6 @@ public class H5ManualWebActivity extends Activity {
 
     private Canvas canvas = new Canvas();
 
-//    private void initSVG() throws IOException {
-//        SVG svg = new SVGBuilder().readFromAsset(getAssets(), "loading.svg").build();
-//
-//        canvas.drawPicture(svg.getPicture());
-//        //github上的svg.createDrawable()没有了,现在只有这个方法
-//        PictureDrawable drawable = svg.getDrawable();
-//        drawable.draw(canvas);
-//        loading_icon.setImageDrawable(drawable);
-//    }
 
     private Handler exitHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
