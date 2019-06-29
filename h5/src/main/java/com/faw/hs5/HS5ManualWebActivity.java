@@ -185,6 +185,11 @@ public class HS5ManualWebActivity extends Activity {
         webView.getSettings().setBuiltInZoomControls(true);
         webView.setLayerType(View.LAYER_TYPE_NONE, null);
         webView.getSettings().setJavaScriptEnabled(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
+        }
+
+
         webView.getSettings().setPluginState(WebSettings.PluginState.ON);
         webView.getSettings().setAllowFileAccess(true);
         webView.getSettings().setAllowContentAccess(true);
