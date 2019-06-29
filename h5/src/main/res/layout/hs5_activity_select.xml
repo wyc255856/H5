@@ -5,7 +5,7 @@
     android:background="@mipmap/hs5_m_selecte_bg">
 
     <LinearLayout
-        android:layout_width="668dp"
+        android:layout_width="566dp"
         android:layout_height="65dp"
         android:layout_centerInParent="true"
         android:orientation="vertical">
@@ -15,26 +15,16 @@
             android:layout_height="25dp" />
 
         <RelativeLayout
-            android:layout_width="668dp"
+            android:layout_width="566dp"
             android:layout_height="40dp"
 
             android:background="@mipmap/hs5_select_view_bg">
 
-            <TextView
-                android:id="@+id/car_text"
-                android:layout_width="134dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_marginBottom="2dp"
-                android:gravity="center"
-                android:text="智联旗领四驱版"
-                android:textColor="#ffffff"
-                android:textSize="12.5sp" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_toLeftOf="@id/car_text"
                 android:orientation="horizontal">
 
                 <View

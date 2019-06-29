@@ -169,7 +169,7 @@ public class EVManualWebActivity extends Activity {
                     if (!url.contains("mp4")) {
                         LogUtil.logError("url = vr");
                         webView.setLayerType(View.LAYER_TYPE_NONE, null);
-                        webView.setBackgroundResource(R.mipmap.ev_manua_vr_bg);
+                        webView.setBackgroundResource(R.mipmap.ev_m_home_bg);
                     } else {
                         LogUtil.logError("url = LAYER_TYPE_HARDWARE");
                         webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);

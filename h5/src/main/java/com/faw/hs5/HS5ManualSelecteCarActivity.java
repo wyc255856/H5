@@ -12,12 +12,10 @@ import com.faw.h5.R;
  */
 
 public class HS5ManualSelecteCarActivity extends HS5BaseActivity implements View.OnClickListener {
-    TextView   car_text;
 
     @Override
     protected void initData() {
         setContentView(R.layout.hs5_activity_select);
-        car_text = (TextView) findViewById(R.id.car_text);
         initSelect();
     }
 
@@ -34,19 +32,14 @@ public class HS5ManualSelecteCarActivity extends HS5BaseActivity implements View
 
         if (v.getId() == R.id.car_1) {
             HS5SharedpreferencesUtil.setCarModel(HS5ManualSelecteCarActivity.this, "HS5_1");
-            car_text.setText("智联旗悦版");
         } else if (v.getId() == R.id.car_2) {
             HS5SharedpreferencesUtil.setCarModel(HS5ManualSelecteCarActivity.this, "HS5_2");
-            car_text.setText("智联旗享版");
         } else if (v.getId() == R.id.car_3) {
             HS5SharedpreferencesUtil.setCarModel(HS5ManualSelecteCarActivity.this, "HS5_3");
-            car_text.setText("智联四驱旗享版");
         } else if (v.getId() == R.id.car_4) {
             HS5SharedpreferencesUtil.setCarModel(HS5ManualSelecteCarActivity.this, "HS5_4");
-            car_text.setText("智联旗领版");
         } else if (v.getId() == R.id.car_5) {
             HS5SharedpreferencesUtil.setCarModel(HS5ManualSelecteCarActivity.this, "HS5_5");
-            car_text.setText("智联旗领四驱版");
         }
 
         HS5SharedpreferencesUtil.setIsFirst(HS5ManualSelecteCarActivity.this, false);

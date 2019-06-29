@@ -118,15 +118,15 @@ public class HS7ManualWebActivity extends Activity {
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                 super.onReceivedError(view, request, error);
                 isError = true;
-                if (isError) {
-                    if (webView.getUrl().equals(HS7ManuaConfig.getManuaUrl(HS7ManualWebActivity.this) + "?upLoad=" + (HS7ManuaConfig.VERSION.equals(HS7SharedpreferencesUtil.getVersion(context)) ? "0" : "1"))) {
-                        error_view.setVisibility(View.VISIBLE);
-                        error_alert.setVisibility(View.VISIBLE);
-                        webView.setEnabled(true);// 当加载网页的时候将网页进行隐藏
-                    }
-                } else {
-                    error_view.setVisibility(View.GONE);
-                }
+//                if (isError) {
+//                    if (webView.getUrl().equals(HS7ManuaConfig.getManuaUrl(HS7ManualWebActivity.this) + "?upLoad=" + (HS7ManuaConfig.VERSION.equals(HS7SharedpreferencesUtil.getVersion(context)) ? "0" : "1"))) {
+//                        error_view.setVisibility(View.VISIBLE);
+//                        error_alert.setVisibility(View.VISIBLE);
+//                        webView.setEnabled(true);// 当加载网页的时候将网页进行隐藏
+//                    }
+//                } else {
+//                    error_view.setVisibility(View.GONE);
+//                }
             }
 
 
@@ -135,15 +135,14 @@ public class HS7ManualWebActivity extends Activity {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 webView.loadUrl("javascript:itemLoaderHide()");
+                LogUtil.logError("onPageFinished isError = " + isError);
                 if (isError) {
-
-                    if (webView.getUrl().equals(HS7ManuaConfig.getManuaUrl(HS7ManualWebActivity.this) + "?upLoad=" + (HS7ManuaConfig.VERSION.equals(HS7SharedpreferencesUtil.getVersion(context)) ? "0" : "1"))) {
-                        error_view.setVisibility(View.VISIBLE);
-                        error_alert.setVisibility(View.VISIBLE);
-                        webView.setEnabled(true);// 当加载网页的时候将网页进行隐藏
-                    }
-                } else {
-                    error_view.setVisibility(View.GONE);
+//
+//                    if (webView.getUrl().equals(HS5ManuaConfig.getManuaUrl(HS5ManualWebActivity.this) + "?upLoad=" + (HS5ManuaConfig.VERSION.equals(HS5SharedpreferencesUtil.getVersion(context)) ? "0" : "1"))) {
+//                        error_view.setVisibility(View.VISIBLE);
+//                        error_alert.setVisibility(View.VISIBLE);
+                    isError = false;
+                    webView.reload();
                 }
             }
 
@@ -155,7 +154,7 @@ public class HS7ManualWebActivity extends Activity {
                     if (!url.contains("mp4")) {
                         LogUtil.logError("url = vr");
                         webView.setLayerType(View.LAYER_TYPE_NONE, null);
-                        webView.setBackgroundResource(R.mipmap.hs7_manua_vr_bg);
+                        webView.setBackgroundResource(R.mipmap.hs7_m_home_bg);
                     } else {
                         LogUtil.logError("url = LAYER_TYPE_HARDWARE");
                         webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
