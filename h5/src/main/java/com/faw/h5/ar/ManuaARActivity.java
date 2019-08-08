@@ -44,7 +44,7 @@ public class ManuaARActivity extends H5BaseActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         if (!Engine.initialize(this, key)) {
-            Log.e("HelloAR", "Initialization Failed.");
+//            Log.e("HelloAR", "Initialization Failed.");
         }
 
         glView = new GLView(this);

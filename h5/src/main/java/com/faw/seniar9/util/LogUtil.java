@@ -13,7 +13,7 @@ public class LogUtil {
 
     public static void logError(String error) {
         if (debug) {
-            Log.e(TAG, error);
+//            Log.e(TAG, error);
 //            Logger.init(TAG).methodCount(3)       ;            // default 0
 //            Logger.e(error);
         }

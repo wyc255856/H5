@@ -431,7 +431,7 @@ public class H5ZhiguoTextActivity extends Activity {
         @Override
         public void onDataChanged(DownloadEntry data) {
             H5ZhiguoTextActivity.entry = data;
-            Log.e("tag", "data.percent = " + data.percent);
+//            Log.e("tag", "data.percent = " + data.percent);
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99%");
@@ -505,7 +505,7 @@ public class H5ZhiguoTextActivity extends Activity {
         String url = "http://www.haoweisys.com/bentengzixun/pano/pano.zip";
 
 //        Log.e("tag", "saveFile = " + saveFile);
-        Log.e("tag", "url = " + url);
+//        Log.e("tag", "url = " + url);
         H5ZhiguoTextActivity.downLoad_view.setVisibility(View.VISIBLE);
 
         DownloadManager.getInstance(context).add(H5ZhiguoTextActivity.entry);

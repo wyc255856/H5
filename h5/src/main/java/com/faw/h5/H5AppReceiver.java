@@ -16,13 +16,13 @@ public class H5AppReceiver extends BroadcastReceiver {
         if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {  // install
             String packageName = intent.getDataString();
 
-            Log.i("homer", "安装了 :" + packageName);
+//            Log.i("homer", "安装了 :" + packageName);
         }
 
         if (intent.getAction().equals("android.intent.action.PACKAGE_REMOVED")) { // uninstall
             String packageName = intent.getDataString();
 
-            Log.i("homer", "卸载了 :" + packageName);
+//            Log.i("homer", "卸载了 :" + packageName);
         }
     }
 }

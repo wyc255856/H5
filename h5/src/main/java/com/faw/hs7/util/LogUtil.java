@@ -9,7 +9,7 @@ import android.util.Log;
  */
 public class LogUtil {
     static String TAG = "PlayCombApp";
-    public static boolean debug = true;
+    public static boolean debug = false;
 
     public static void logError(String error) {
         if (debug) {

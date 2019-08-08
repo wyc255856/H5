@@ -45,7 +45,7 @@ public class EVManuaApi {
         String url = EVManuaConfig.getManuaDownLoadUrl(context);
 
 //        Log.e("tag", "saveFile = " + saveFile);
-        Log.e("tag", "url = " + url);
+//        Log.e("tag", "url = " + url);
         EVManuaSetActivity.downLoad_view.setVisibility(View.VISIBLE);
 
         DownloadManager.getInstance(context).add(EVManuaSetActivity.entry);
@@ -138,7 +138,7 @@ public class EVManuaApi {
         String url = EVManuaConfig.getManuaDownLoadUrl(context);
 
 //        Log.e("tag", "saveFile = " + saveFile);
-        Log.e("tag", "url = " + url);
+//        Log.e("tag", "url = " + url);
         EVManuaSetActivity.downLoad_view.setVisibility(View.VISIBLE);
 
         DownloadManager.getInstance(context).add(EVManuaSetActivity.entry);

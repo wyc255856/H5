@@ -143,8 +143,8 @@ public class AppUtil {
 		ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 		List<RunningTaskInfo> list = activityManager.getRunningTasks(100);
 		for (RunningTaskInfo runningTaskInfo : list) {
-			Log.i("tag", runningTaskInfo.topActivity.getPackageName() + " runningTaskInfo.baseActivity="
-					+ runningTaskInfo.baseActivity);
+//			Log.i("tag", runningTaskInfo.topActivity.getPackageName() + " runningTaskInfo.baseActivity="
+//					+ runningTaskInfo.baseActivity);
 			if (context.getPackageName().equals(runningTaskInfo.baseActivity.getPackageName())
 					&& activityName.equals(runningTaskInfo.baseActivity.getClassName())) {
 				return true;

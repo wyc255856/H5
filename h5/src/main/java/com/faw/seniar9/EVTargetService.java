@@ -36,7 +36,7 @@ public class EVTargetService extends Service {
         manager.setRepeating(AlarmManager.ELAPSED_REALTIME, triggerAtTime, 5 * 1000, pendingIntent);
 
 
-        Log.d("un", "Service onCreate");
+//        Log.d("un", "Service onCreate");
         super.onCreate();
 
     }
@@ -46,7 +46,7 @@ public class EVTargetService extends Service {
     public void onStart(Intent intent, int startId) {
         // TODO Auto-generated method stub
         super.onStart(intent, startId);
-        Log.d("un", "Service onStart");
+//        Log.d("un", "Service onStart");
 //        CdCarInfoQueryManager.getInstance().setQueryCarInfoTool(new CdCarInfoQueryManager.QueryCarInfoTool() {
 //            @Override
 //            public boolean answerContent(String feature, String extra) {
@@ -66,13 +66,13 @@ public class EVTargetService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("un", "Service onStartCommand");
+//        Log.d("un", "Service onStartCommand");
         return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
     public void onDestroy() {
-        Log.d("un", "Service onDestory");
+//        Log.d("un", "Service onDestory");
         Intent i = new Intent("com.example.service_destory");
         sendBroadcast(i);
         super.onDestroy();

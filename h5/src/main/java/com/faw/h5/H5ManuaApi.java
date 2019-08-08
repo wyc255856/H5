@@ -45,7 +45,7 @@ public class H5ManuaApi {
         String url = H5ManuaConfig.getManuaDownLoadUrl(context);
 
 //        Log.e("tag", "saveFile = " + saveFile);
-        Log.e("tag", "url = " + url);
+//        Log.e("tag", "url = " + url);
         H5ManuaSetActivity.downLoad_view.setVisibility(View.VISIBLE);
 
         DownloadManager.getInstance(context).add(H5ManuaSetActivity.entry);
@@ -138,7 +138,7 @@ public class H5ManuaApi {
         String url = H5ManuaConfig.getManuaDownLoadUrl(context);
 
 //        Log.e("tag", "saveFile = " + saveFile);
-        Log.e("tag", "url = " + url);
+//        Log.e("tag", "url = " + url);
         H5ManuaSetActivity.downLoad_view.setVisibility(View.VISIBLE);
 
         DownloadManager.getInstance(context).add(H5ManuaSetActivity.entry);

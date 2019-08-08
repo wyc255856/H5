@@ -64,7 +64,7 @@ public class HelloAR {
         tracker.loadTarget(target, new FunctorOfVoidFromPointerOfTargetAndBool() {
             @Override
             public void invoke(Target target, boolean status) {
-                Log.i("HelloAR", String.format("load target (%b): %s (%d)", status, target.name(), target.runtimeID()));
+//                Log.i("HelloAR", String.format("load target (%b): %s (%d)", status, target.name(), target.runtimeID()));
             }
         });
     }

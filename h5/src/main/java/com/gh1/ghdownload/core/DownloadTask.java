@@ -101,7 +101,7 @@ public class DownloadTask implements ConnectListener, DownloadListener{
 	}
 	
 	public void cancel(){
-		Log.v("gh_download", "DownloadTask==>cancel!!!!!");
+//		Log.v("gh_download", "DownloadTask==>cancel!!!!!");
 		isCancelled = true;
 		if(connectThread != null && connectThread.isRunning()){
 			connectThread.cancel();
@@ -238,7 +238,7 @@ public class DownloadTask implements ConnectListener, DownloadListener{
 			lastStamp = stamp;
 			int percent = (int)(entry.currentLength * 100l / entry.totalLength);
 			entry.percent = percent;
-			Log.v("gh_download", "index==>" + index + " " + entry.toString());
+//			Log.v("gh_download", "index==>" + index + " " + entry.toString());
 			notifyUpdate(entry, DownloadService.NOTIFY_UPDATING);
 		}
 		

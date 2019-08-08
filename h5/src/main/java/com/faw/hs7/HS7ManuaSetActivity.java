@@ -359,7 +359,7 @@ public class HS7ManuaSetActivity extends Activity {
             HS7ManuaSetActivity.entry = data;
             download_text.setText("正在下载离线文件...");
             download_text.setTextSize(16f);
-            Log.e("tag", "data.percent = " + data.percent);
+//            Log.e("tag", "data.percent = " + data.percent);
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99");
@@ -427,7 +427,7 @@ public class HS7ManuaSetActivity extends Activity {
         @Override
         public void onDataChanged(DownloadEntry data) {
             HS7ManuaSetActivity.entry = data;
-            Log.e("tag", "data.percent = " + data.percent);
+//            Log.e("tag", "data.percent = " + data.percent);
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99");

@@ -54,7 +54,7 @@ public class LibIOUtil {
                 sb.append(line + "\n");
             }
         } catch (IOException e) {
-            Log.e("convertStreamToString", "convertStreamToString error");
+//            Log.e("convertStreamToString", "convertStreamToString error");
         } finally {
             try {
                 is.close();
@@ -270,7 +270,7 @@ public class LibIOUtil {
         String pkgName = AppUtil.getPackageName(context);
         String path = basePath + FS + NIGHTAPP + FS + pkgName + FS + UPLOAD + FS + UPLOAD_IMAGE_FILE + index + PNG;
         if (!isParentDirExist(path)) {
-            Log.e("tag", "执行添加文件夹操作");
+//            Log.e("tag", "执行添加文件夹操作");
             makeParentDirs(path);
         }
         return path;
@@ -336,13 +336,13 @@ public class LibIOUtil {
     // 删除文件夹
     public static boolean deleteFolder(File folder) {
         String childs[] = folder.list();
-        Log.e("tag", "childs.length = " + childs.length);
+//        Log.e("tag", "childs.length = " + childs.length);
         if (childs == null || childs.length <= 0) {
-            Log.e("tag", "执行了这里~~~~~~");
+//            Log.e("tag", "执行了这里~~~~~~");
             return folder.delete();
         }
         for (int i = 0; i < childs.length; i++) {
-            Log.e("tag", "删除一个文件！！！！！！~~~~~~");
+//            Log.e("tag", "删除一个文件！！！！！！~~~~~~");
             String childName = childs[i];
             String childPath = folder.getPath() + File.separator + childName;
             File filePath = new File(childPath);

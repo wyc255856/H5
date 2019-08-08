@@ -45,7 +45,7 @@ public class HS7ManuaApi {
         String url = HS7ManuaConfig.getManuaDownLoadUrl(context);
 
 //        Log.e("tag", "saveFile = " + saveFile);
-        Log.e("tag", "url = " + url);
+//        Log.e("tag", "url = " + url);
         HS7ManuaSetActivity.downLoad_view.setVisibility(View.VISIBLE);
 
         DownloadManager.getInstance(context).add(HS7ManuaSetActivity.entry);
@@ -138,7 +138,7 @@ public class HS7ManuaApi {
         String url = HS7ManuaConfig.getManuaDownLoadUrl(context);
 
 //        Log.e("tag", "saveFile = " + saveFile);
-        Log.e("tag", "url = " + url);
+//        Log.e("tag", "url = " + url);
         HS7ManuaSetActivity.downLoad_view.setVisibility(View.VISIBLE);
 
         DownloadManager.getInstance(context).add(HS7ManuaSetActivity.entry);

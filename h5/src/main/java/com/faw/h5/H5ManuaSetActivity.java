@@ -360,7 +360,7 @@ public class H5ManuaSetActivity extends Activity {
         @Override
         public void onDataChanged(DownloadEntry data) {
             H5ManuaSetActivity.entry = data;
-            Log.e("tag", "data.percent = " + data.percent);
+//            Log.e("tag", "data.percent = " + data.percent);
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99%");
@@ -425,7 +425,7 @@ public class H5ManuaSetActivity extends Activity {
         @Override
         public void onDataChanged(DownloadEntry data) {
             H5ManuaSetActivity.entry = data;
-            Log.e("tag", "data.percent = " + data.percent);
+//            Log.e("tag", "data.percent = " + data.percent);
             if (data.percent == 100) {
                 downLoad_progress.setProgress(99);
                 progress_text.setText("99%");
