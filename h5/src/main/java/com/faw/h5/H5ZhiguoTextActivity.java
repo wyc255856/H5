@@ -81,7 +81,7 @@ public class H5ZhiguoTextActivity extends Activity {
         setContentView(R.layout.h5_activity_m_web);
 
 
-        entry = new DownloadEntry("http://www.haoweisys.com/bentengzixun/pano/pano.zip");
+        entry = new DownloadEntry("http://www.e-guides.faw.cn/bentengzixun/pano/pano.zip");
         entry.name = LibIOUtil.UPLOAD_ZIP_FILE;
 
 
@@ -285,7 +285,7 @@ public class H5ZhiguoTextActivity extends Activity {
             webView.loadUrl("file://" + LibIOUtil.getDefaultPath(context) + H5SharedpreferencesUtil.getModelLocal(H5ZhiguoTextActivity.this) + "/index.html" + "?upLoad=" + (H5ManuaConfig.VERSION.equals(H5SharedpreferencesUtil.getVersion(this)) ? "0" : "1"));
         } else {
 
-            webView.loadUrl("http://www.haoweisys.com/bentengzixun/pano/");
+            webView.loadUrl("http://www.e-guides.faw.cn/bentengzixun/pano/");
         }
     }
 
