@@ -32,7 +32,7 @@ dependencies {
     compile 'com.daimajia.numberprogressbar:library:1.4@aar'
     compile 'org.zeroturnaround:zt-zip:1.12'
     compile files('libs/custom-sdk-release-1.2.2.jar')
-    provided files('libs/gson-2.2.4.jar')
+    compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.github.japgolly.android:svg-android:2.0.6'
     compile 'org.apache.ant:ant:1.8.2'
     compile('com.lsjwzh:materialloadingprogressbar:0.5.8-RELEASE')
