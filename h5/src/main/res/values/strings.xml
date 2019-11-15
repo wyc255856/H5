@@ -19,4 +19,8 @@
     <string name="mediacontroller_play_pause">Play/Pause</string>
     <integer name="m_point_time">30</integer>
     <string name="game_view_content_description">Game view</string>
+
+
+
+    
 </resources>
