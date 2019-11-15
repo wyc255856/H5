@@ -8,7 +8,7 @@ import android.graphics.Canvas;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatDelegate;
+
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -58,7 +58,7 @@ public class HS5ManualWebActivity extends Activity {
     private String url;
 
     static {
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+         ;
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)

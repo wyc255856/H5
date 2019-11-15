@@ -2,17 +2,43 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '28.0.1'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId "com.example.wyc.h5demo"
-        minSdkVersion 15
-        targetSdkVersion 22
+        ndk {
+            abiFilters 'armeabi-v7a', 'x86'
+        }
+        minSdkVersion 23
+        targetSdkVersion 23
         versionCode 2
         versionName "1.1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
+    }
+    aaptOptions {
+        noCompress = ['.unity3d', '.ress', '.resource', '.obb', 'vuforia/lhrarcar.dat', 'vuforia/lhrarcar.xml', 'vuforia/qjc.dat', 'vuforia/qjc.xml', 'vuforia/vuforiamars_modeltarget.dat', 'vuforia/vuforiamars_modeltarget.xml', 'vuforia/zkq3.dat', 'vuforia/zkq3.xml', 'vuforia/fxp.dat', 'vuforia/fxp.xml', 'vuforia/hs5_easy_ccb1.dat', 'vuforia/hs5_easy_ccb1.xml', 'vuforia/zks2.dat', 'vuforia/zks2.xml']
+    }
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = false
+        }
+        abi {
+            enableSplit = true
+        }
+    }
+
+    packagingOptions {
+        doNotStrip '*/armeabi-v7a/*.so'
+        doNotStrip '*/x86/*.so'
     }
     buildTypes {
         release {
@@ -21,19 +47,22 @@ android {
         }
     }
 
+
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support:recyclerview-v7:23.4.0'
-    testCompile 'junit:junit:4.12'
-    compile 'com.github.japgolly.android:svg-android:2.0.6'
+//    implementation 'com.android.support:appcompat-v7:23.4.0'
+//    implementation 'com.android.support:recyclerview-v7:23.4.0'
+    implementation(name: 'UniWebView', ext:'aar')
+    implementation(name: 'VuforiaWrapper', ext:'aar')
+    implementation 'junit:junit:4.12'
+    implementation 'com.github.japgolly.android:svg-android:2.0.6'
     //    compile 'cn.finalteam:okhttpfinal:2.0.7'
-    compile project(':h5')
+    implementation project(':h5')
 }
 
 

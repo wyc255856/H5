@@ -40,21 +40,21 @@ public class HS5ManuaWelecomActivity extends HS5BaseActivity {
             HS5SharedpreferencesUtil.setCarModel(this, getIntent().getStringExtra("carModel"));
         }
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-        if (currentapiVersion >= 23) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
-                    != PackageManager.PERMISSION_GRANTED) {
-                //申请WRITE_EXTERNAL_STORAGE权限
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.SYSTEM_ALERT_WINDOW},
-                        WRITE_EXTERNAL_STORAGE_REQUEST_CODE);
-            } else {
-                goMainActivity();
-            }
-        } else {
+//        if (currentapiVersion >= 23) {
+//            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//                    != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+//                    != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
+//                    != PackageManager.PERMISSION_GRANTED) {
+//                //申请WRITE_EXTERNAL_STORAGE权限
+//                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+//                                Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.SYSTEM_ALERT_WINDOW},
+//                        WRITE_EXTERNAL_STORAGE_REQUEST_CODE);
+//            } else {
+//                goMainActivity();
+//            }
+//        } else {
             goMainActivity();
-        }
+//        }
         new Thread() {
             @Override
             public void run() {

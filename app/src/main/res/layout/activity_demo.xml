@@ -85,5 +85,13 @@
             android:layout_margin="10dp"
             android:onClick="onClick"
             android:text="startHS7_1" />
+
+        <Button
+            android:id="@+id/startAR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="onClick"
+            android:text="startAR" />
     </LinearLayout>
 </LinearLayout>

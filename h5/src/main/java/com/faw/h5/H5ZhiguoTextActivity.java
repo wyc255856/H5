@@ -9,7 +9,6 @@ import android.graphics.Canvas;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -61,9 +60,9 @@ public class H5ZhiguoTextActivity extends Activity {
     private String url;
     //    public AppCompatImageView loading_icon;
 
-    static {
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-    }
+//    static {
+//         ;
+//    }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override

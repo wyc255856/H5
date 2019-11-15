@@ -2,15 +2,16 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '28.0.1'
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 22
+        minSdkVersion 23
+        targetSdkVersion 23
         versionCode 4
         versionName "1.1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -18,24 +19,26 @@ android {
         }
     }
 
+
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support:recyclerview-v7:23.4.0'
-    testCompile 'junit:junit:4.12'
+
+//    implementation 'com.android.support:appcompat-v7:23.4.0'
+//    implementation 'com.android.support:recyclerview-v7:23.4.0'
+    implementation 'junit:junit:4.12'
 //    compile 'cn.finalteam:okhttpfinal:2.0.7'
-    compile 'com.daimajia.numberprogressbar:library:1.4@aar'
-    compile 'org.zeroturnaround:zt-zip:1.12'
-    compile files('libs/custom-sdk-release-1.2.2.jar')
-    compile 'com.google.code.gson:gson:2.8.2'
-    compile 'com.github.japgolly.android:svg-android:2.0.6'
-    compile 'org.apache.ant:ant:1.8.2'
-    compile('com.lsjwzh:materialloadingprogressbar:0.5.8-RELEASE')
-    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    implementation 'com.daimajia.numberprogressbar:library:1.4@aar'
+    implementation 'org.zeroturnaround:zt-zip:1.12'
+    implementation files('libs/custom-sdk-release-1.2.2.jar')
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.github.japgolly.android:svg-android:2.0.6'
+    implementation 'org.apache.ant:ant:1.8.2'
+    implementation('com.lsjwzh:materialloadingprogressbar:0.5.8-RELEASE')
+    implementation 'com.squareup.okhttp3:okhttp:3.6.0'
 
 }

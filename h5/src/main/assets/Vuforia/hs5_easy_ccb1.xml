@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="hs5_easy_ccb1"/>
+
+</Tracking>
+
+<Assembly name="hs5_easy_ccb1s_assembly" assemblyId="f2142d2029c949b68136e69007e987c5">
+<Part name="hs5_easy_ccb1" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="-0.054529 0.477227 0.800204" rotation="AD: 0.9999999954561574 0.004278325066880248 -0.022680720083268845 201.359" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARConfig>

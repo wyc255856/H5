@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="zks2"/>
+
+</Tracking>
+
+<Assembly name="zks2s_assembly" assemblyId="5a98458301e34ea2aaa6029633e80b02">
+<Part name="zks2" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0001" translation="-5.92313 -1.03942 7.07454" rotation="AD: 0.999550543124499 0.11347350517222948 -0.2949982508216553 220.282" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARConfig>

@@ -1,13 +1,14 @@
 package com.example.wyc.h5demo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.faw.controller.ManuaApi;
 import com.faw.h5.H5ManuaApi;
 import com.faw.seniar9.EVManuaApi;
+import com.yufuparty.LHR.ARShow.UnityPlayerActivity;
 
 /**
  * Created by wyc on 2018/6/29.
@@ -15,7 +16,7 @@ import com.faw.seniar9.EVManuaApi;
 
 public class DemoActivity extends Activity {
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo);
     }
@@ -37,6 +38,8 @@ public class DemoActivity extends Activity {
             ManuaApi.openManua(this, ManuaApi.MANUA_CAR.HS5, "HS5_1");
         } else if (view.getId() == R.id.startHS7_1) {
             ManuaApi.openManua(this, ManuaApi.MANUA_CAR.HS7, "HS7_1");
+        }else if (view.getId()==R.id.startAR){
+            startActivity(new Intent(this, UnityPlayerActivity.class));
         }
 
     }

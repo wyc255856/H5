@@ -2,7 +2,6 @@ package com.faw.hs5;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.v7.app.AppCompatDelegate;
 
 import com.baidu.che.codriversdk.InitListener;
 import com.baidu.che.codriversdk.manager.CdAsrManager;
@@ -18,7 +17,7 @@ public class HS5ManuaApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();sContext=this;
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+         ;
         CdConfigManager.getInstance().initialize(getApplicationContext(), new InitListener() {
             @Override
             public void onConnectedToRemote() {
