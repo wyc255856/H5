@@ -11,6 +11,7 @@ import com.faw.hs5.HS5ManuaApi;
 import com.faw.hs7.HS7ManuaApi;
 import com.faw.seniar9.EVManuaApi;
 import com.faw.seniar9.util.FireUtil;
+import com.yufuparty.LHR.ARShow.UnityPlayerActivity;
 
 public class ManuaApi {
 
@@ -39,5 +40,9 @@ public class ManuaApi {
             HS7ManuaApi.getInstance().openManua(context, carModel);
         }
 
+    }
+
+    public static void openHS5AR(Context context) {
+        context.startActivity(new Intent(context, UnityPlayerActivity.class));
     }
 }
