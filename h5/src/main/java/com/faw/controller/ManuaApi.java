@@ -3,6 +3,7 @@ package com.faw.controller;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import com.faw.h5.H5ManuaApi;
 import com.faw.h5.H5ManuaWelecomActivity;
@@ -24,7 +25,14 @@ public class ManuaApi {
     }
 
     public static void openManua(Context context, MANUA_CAR car, String carModel) {
-        FireUtil.delete(context);
+
+        if (context != null) {
+            try {
+                FireUtil.delete(context);
+            } catch (Exception e) {
+                Toast.makeText(context, "请开启SD卡读写权限", Toast.LENGTH_SHORT).show();
+            }
+        }
         CURRENT_CAR = car;
         if (car == MANUA_CAR.EV) {
             type = "ev";

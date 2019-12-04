@@ -1,6 +1,28 @@
 apply plugin: 'com.android.application'
 
 android {
+
+
+    aaptOptions {
+        noCompress = ['.unity3d', '.ress', '.resource', '.obb', 'vuforia/lhrarcar.dat',
+                      'vuforia/lhrarcar.xml', 'vuforia/qjc.dat', 'vuforia/qjc.xml', 'vuforia/vuforiamars_modeltarget.dat', 'vuforia/vuforiamars_modeltarget.xml', 'vuforia/zkq3.dat', 'vuforia/zkq3.xml', 'vuforia/fxp.dat', 'vuforia/fxp.xml', 'vuforia/hs5_easy_ccb1.dat', 'vuforia/hs5_easy_ccb1.xml', 'vuforia/zks2.dat', 'vuforia/zks2.xml']
+    }
+    bundle {
+        language { enableSplit = false
+        }
+        density {
+            enableSplit = false
+        }
+        abi {
+            enableSplit = true }
+    }
+    packagingOptions {
+        doNotStrip '*/armeabi-v7a/*.so'
+        doNotStrip '*/x86/*.so' }
+
+
+
+
     compileSdkVersion 23
     buildToolsVersion '28.0.1'
     compileOptions {
@@ -21,25 +43,7 @@ android {
             useSupportLibrary = true
         }
     }
-    aaptOptions {
-        noCompress = ['.unity3d', '.ress', '.resource', '.obb', 'vuforia/lhrarcar.dat', 'vuforia/lhrarcar.xml', 'vuforia/qjc.dat', 'vuforia/qjc.xml', 'vuforia/vuforiamars_modeltarget.dat', 'vuforia/vuforiamars_modeltarget.xml', 'vuforia/zkq3.dat', 'vuforia/zkq3.xml', 'vuforia/fxp.dat', 'vuforia/fxp.xml', 'vuforia/hs5_easy_ccb1.dat', 'vuforia/hs5_easy_ccb1.xml', 'vuforia/zks2.dat', 'vuforia/zks2.xml']
-    }
-    bundle {
-        language {
-            enableSplit = false
-        }
-        density {
-            enableSplit = false
-        }
-        abi {
-            enableSplit = true
-        }
-    }
 
-    packagingOptions {
-        doNotStrip '*/armeabi-v7a/*.so'
-        doNotStrip '*/x86/*.so'
-    }
     buildTypes {
         release {
             minifyEnabled false

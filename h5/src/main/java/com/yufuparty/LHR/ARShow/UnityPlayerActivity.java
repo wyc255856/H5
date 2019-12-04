@@ -7,14 +7,17 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class UnityPlayerActivity extends Activity {
     protected UnityPlayer mUnityPlayer; // don't change the name of this variable; referenced from native code
+    public static Activity _unityActivity;
 
     // Override this in your custom UnityPlayerActivity to tweak the command line arguments passed to the Unity Android Player
     // The command line arguments are passed as a string, separated by spaces
@@ -32,7 +35,7 @@ public class UnityPlayerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-
+        _unityActivity = this;
         String cmdLine = updateUnityCommandLineArguments(getIntent().getStringExtra("unity"));
         getIntent().putExtra("unity", cmdLine);
 
@@ -146,6 +149,21 @@ public class UnityPlayerActivity extends Activity {
 
     public void closePage(String str) {
         finish();
+    }
+
+    //Unity调用的ShowMessage方法并传递参数 str
+    public void ShowMessage(final String str){
+        Log.i("调用信息", "我被onclik2调用了");
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                Show(str);
+            }
+        });
+    }
+    public void Show(String str){
+        Toast.makeText(this, str+"成功调用了android中的函数", Toast.LENGTH_LONG).show();
     }
 
 }
