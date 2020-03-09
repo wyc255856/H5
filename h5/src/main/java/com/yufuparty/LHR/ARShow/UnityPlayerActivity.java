@@ -148,11 +148,18 @@ public class UnityPlayerActivity extends Activity {
 
 
     public void closePage(String str) {
-        finish();
+
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                finish();
+            }
+        });
     }
 
     //Unity调用的ShowMessage方法并传递参数 str
-    public void ShowMessage(final String str){
+    public void ShowMessage(final String str) {
         Log.i("调用信息", "我被onclik2调用了");
         runOnUiThread(new Runnable() {
 
@@ -162,8 +169,9 @@ public class UnityPlayerActivity extends Activity {
             }
         });
     }
-    public void Show(String str){
-        Toast.makeText(this, str+"成功调用了android中的函数", Toast.LENGTH_LONG).show();
+
+    public void Show(String str) {
+        Toast.makeText(this, str + "成功调用了android中的函数", Toast.LENGTH_LONG).show();
     }
 
 }

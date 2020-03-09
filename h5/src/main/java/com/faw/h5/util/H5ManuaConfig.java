@@ -7,9 +7,9 @@ import android.content.Context;
  */
 
 public class H5ManuaConfig {
-    public static String VERSION = "1.0.0";
+    public static String VERSION = "1.0.16";
     public static String BASE_URL = "http://www.e-guides.faw.cn/HONGQIH5/";
-
+    public static String SDK_VERSION = "1.0.16";
 
     public static String T086_BASE_URL = BASE_URL + "/car_engine_H5/";
     public static String H5_BASE_URL = BASE_URL + "/car_engine_H5/";
