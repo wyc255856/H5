@@ -1,6 +1,6 @@
 package com.yufuparty.LHR.ARShow;
 
-import com.unity3d.player.*;
+//import com.unity3d.player.*;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,8 +16,8 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 public class UnityPlayerActivity extends Activity {
-    protected UnityPlayer mUnityPlayer; // don't change the name of this variable; referenced from native code
-    public static Activity _unityActivity;
+//    protected UnityPlayer mUnityPlayer; // don't change the name of this variable; referenced from native code
+//    public static Activity _unityActivity;
 
     // Override this in your custom UnityPlayerActivity to tweak the command line arguments passed to the Unity Android Player
     // The command line arguments are passed as a string, separated by spaces
@@ -35,13 +35,13 @@ public class UnityPlayerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        _unityActivity = this;
-        String cmdLine = updateUnityCommandLineArguments(getIntent().getStringExtra("unity"));
-        getIntent().putExtra("unity", cmdLine);
-
-        mUnityPlayer = new UnityPlayer(this);
-        setContentView(mUnityPlayer);
-        mUnityPlayer.requestFocus();
+//        _unityActivity = this;
+//        String cmdLine = updateUnityCommandLineArguments(getIntent().getStringExtra("unity"));
+//        getIntent().putExtra("unity", cmdLine);
+//
+//        mUnityPlayer = new UnityPlayer(this);
+//        setContentView(mUnityPlayer);
+//        mUnityPlayer.requestFocus();
     }
 
     @Override
@@ -53,110 +53,110 @@ public class UnityPlayerActivity extends Activity {
         setIntent(intent);
     }
 
-    // Quit Unity
-    @Override
-    protected void onDestroy() {
-        mUnityPlayer.destroy();
-        super.onDestroy();
-    }
-
-    // Pause Unity
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mUnityPlayer.pause();
-    }
-
-    // Resume Unity
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mUnityPlayer.resume();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mUnityPlayer.start();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        mUnityPlayer.stop();
-    }
-
-    // Low Memory Unity
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        mUnityPlayer.lowMemory();
-    }
-
-    // Trim Memory Unity
-    @Override
-    public void onTrimMemory(int level) {
-        super.onTrimMemory(level);
-        if (level == TRIM_MEMORY_RUNNING_CRITICAL) {
-            mUnityPlayer.lowMemory();
-        }
-    }
-
-    // This ensures the layout will be correct.
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        mUnityPlayer.configurationChanged(newConfig);
-    }
-
-    // Notify Unity of the focus change.
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        mUnityPlayer.windowFocusChanged(hasFocus);
-    }
-
-    // For some reason the multiple keyevent type is not supported by the ndk.
-    // Force event injection by overriding dispatchKeyEvent().
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getAction() == KeyEvent.ACTION_MULTIPLE)
-            return mUnityPlayer.injectEvent(event);
-        return super.dispatchKeyEvent(event);
-    }
-
-    // Pass any events not handled by (unfocused) views straight to UnityPlayer
-    @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        return mUnityPlayer.injectEvent(event);
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        return mUnityPlayer.injectEvent(event);
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return mUnityPlayer.injectEvent(event);
-    }
-
-    /*API12*/
-    public boolean onGenericMotionEvent(MotionEvent event) {
-        return mUnityPlayer.injectEvent(event);
-    }
-
-
-    public void closePage(String str) {
-
-        runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-                finish();
-            }
-        });
-    }
+//    // Quit Unity
+//    @Override
+//    protected void onDestroy() {
+//        mUnityPlayer.destroy();
+//        super.onDestroy();
+//    }
+//
+//    // Pause Unity
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        mUnityPlayer.pause();
+//    }
+//
+//    // Resume Unity
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        mUnityPlayer.resume();
+//    }
+//
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        mUnityPlayer.start();
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        mUnityPlayer.stop();
+//    }
+//
+//    // Low Memory Unity
+//    @Override
+//    public void onLowMemory() {
+//        super.onLowMemory();
+//        mUnityPlayer.lowMemory();
+//    }
+//
+//    // Trim Memory Unity
+//    @Override
+//    public void onTrimMemory(int level) {
+//        super.onTrimMemory(level);
+//        if (level == TRIM_MEMORY_RUNNING_CRITICAL) {
+//            mUnityPlayer.lowMemory();
+//        }
+//    }
+//
+//    // This ensures the layout will be correct.
+//    @Override
+//    public void onConfigurationChanged(Configuration newConfig) {
+//        super.onConfigurationChanged(newConfig);
+//        mUnityPlayer.configurationChanged(newConfig);
+//    }
+//
+//    // Notify Unity of the focus change.
+//    @Override
+//    public void onWindowFocusChanged(boolean hasFocus) {
+//        super.onWindowFocusChanged(hasFocus);
+//        mUnityPlayer.windowFocusChanged(hasFocus);
+//    }
+//
+//    // For some reason the multiple keyevent type is not supported by the ndk.
+//    // Force event injection by overriding dispatchKeyEvent().
+//    @Override
+//    public boolean dispatchKeyEvent(KeyEvent event) {
+//        if (event.getAction() == KeyEvent.ACTION_MULTIPLE)
+//            return mUnityPlayer.injectEvent(event);
+//        return super.dispatchKeyEvent(event);
+//    }
+//
+//    // Pass any events not handled by (unfocused) views straight to UnityPlayer
+//    @Override
+//    public boolean onKeyUp(int keyCode, KeyEvent event) {
+//        return mUnityPlayer.injectEvent(event);
+//    }
+//
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        return mUnityPlayer.injectEvent(event);
+//    }
+//
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        return mUnityPlayer.injectEvent(event);
+//    }
+//
+//    /*API12*/
+//    public boolean onGenericMotionEvent(MotionEvent event) {
+//        return mUnityPlayer.injectEvent(event);
+//    }
+//
+//
+//    public void closePage(String str) {
+//
+//        runOnUiThread(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                finish();
+//            }
+//        });
+//    }
 
     //Unity调用的ShowMessage方法并传递参数 str
     public void ShowMessage(final String str) {

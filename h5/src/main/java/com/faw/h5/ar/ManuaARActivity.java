@@ -23,8 +23,8 @@ import com.faw.h5.widget.BaseARView;
 
 import java.util.HashMap;
 
-import cn.easyar.Engine;
-import cn.easyar.ImageTarget;
+//import cn.easyar.Engine;
+//import cn.easyar.ImageTarget;
 
 /**
  * Created by wyc on 2018/7/31.
@@ -42,42 +42,42 @@ public class ManuaARActivity extends H5BaseActivity {
         setContentView(R.layout.h5_activity_m_ar);
         context = this;
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-        if (!Engine.initialize(this, key)) {
-//            Log.e("HelloAR", "Initialization Failed.");
-        }
-
-        glView = new GLView(this);
-        glView.setArChangeListener(new GLView.ARChangeListener() {
-            @Override
-            public void onShowARImage(ImageTarget imagetarget) {
-                stopLineAnimation();
-                if (imagetarget.name().equals("方向盘")) {
-                    currentARView = ar_steering_view;
-                    ar_steering_view.reset();
-                    ar_steering_view.setVisibility(View.VISIBLE);
-                }
-            }
-
-            @Override
-            public void onHideARImage() {
-
-                ar_steering_view.setVisibility(View.GONE);
-                startLineAnimation();
-            }
-        });
-        requestCameraPermission(new PermissionCallback() {
-            @Override
-            public void onSuccess() {
-                ((ViewGroup) findViewById(R.id.preview)).addView(glView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-            }
-
-            @Override
-            public void onFailure() {
-            }
-        });
-        iv_ar_line = (ImageView) findViewById(R.id.ar_line);
-        ar_steering_view = (ARSteeringView) findViewById(R.id.ar_steering_view);
+//
+//        if (!Engine.initialize(this, key)) {
+////            Log.e("HelloAR", "Initialization Failed.");
+//        }
+//
+//        glView = new GLView(this);
+//        glView.setArChangeListener(new GLView.ARChangeListener() {
+//            @Override
+//            public void onShowARImage(ImageTarget imagetarget) {
+//                stopLineAnimation();
+//                if (imagetarget.name().equals("方向盘")) {
+//                    currentARView = ar_steering_view;
+//                    ar_steering_view.reset();
+//                    ar_steering_view.setVisibility(View.VISIBLE);
+//                }
+//            }
+//
+//            @Override
+//            public void onHideARImage() {
+//
+//                ar_steering_view.setVisibility(View.GONE);
+//                startLineAnimation();
+//            }
+//        });
+//        requestCameraPermission(new PermissionCallback() {
+//            @Override
+//            public void onSuccess() {
+//                ((ViewGroup) findViewById(R.id.preview)).addView(glView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+//            }
+//
+//            @Override
+//            public void onFailure() {
+//            }
+//        });
+//        iv_ar_line = (ImageView) findViewById(R.id.ar_line);
+//        ar_steering_view = (ARSteeringView) findViewById(R.id.ar_steering_view);
     }
 
     @Override

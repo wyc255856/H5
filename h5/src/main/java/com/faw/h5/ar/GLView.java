@@ -19,102 +19,102 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
 
-import cn.easyar.Engine;
-import cn.easyar.ImageTarget;
+//import cn.easyar.Engine;
+//import cn.easyar.ImageTarget;
 
 public class GLView extends GLSurfaceView {
-    private HelloAR helloAR;
+//    private HelloAR helloAR;
 
     public GLView(Context context) {
         super(context);
-        setEGLContextFactory(new ContextFactory());
-        setEGLConfigChooser(new ConfigChooser());
-
-        helloAR = new HelloAR();
-        helloAR.setArChangeListener(new HelloAR.ARChangeListener() {
-            @Override
-            public void onShowARImage(final ImageTarget imagetarget) {
-                if (arChangeListener != null) {
-                    //识别了AR图片显示出遮罩层
-                    ManuaARActivity.context.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            LogUtil.logError("onShowARImage");
-                            arChangeListener.onShowARImage(imagetarget);
-                        }
-                    });
-
-                }
-            }
-
-            @Override
-            public void onHideARImage() {
-                LogUtil.logError("onHideARImage");
-                if (arChangeListener != null) {
-                    //识别了AR图片显示出遮罩层
-
-                    ManuaARActivity.context.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            arChangeListener.onHideARImage();
-                        }
-                    });
-                }
-            }
-        });
-        this.setRenderer(new GLSurfaceView.Renderer() {
-            @Override
-            public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-                synchronized (helloAR) {
-                    helloAR.initGL();
-                }
-            }
-
-            @Override
-            public void onSurfaceChanged(GL10 gl, int w, int h) {
-                synchronized (helloAR) {
-                    helloAR.resizeGL(w, h);
-                }
-            }
-
-            @Override
-            public void onDrawFrame(GL10 gl) {
-                synchronized (helloAR) {
-                    helloAR.render();
-                }
-            }
-        });
-        this.setZOrderMediaOverlay(true);
+//        setEGLContextFactory(new ContextFactory());
+//        setEGLConfigChooser(new ConfigChooser());
+//
+//        helloAR = new HelloAR();
+//        helloAR.setArChangeListener(new HelloAR.ARChangeListener() {
+//            @Override
+//            public void onShowARImage(final ImageTarget imagetarget) {
+//                if (arChangeListener != null) {
+//                    //识别了AR图片显示出遮罩层
+//                    ManuaARActivity.context.runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            LogUtil.logError("onShowARImage");
+//                            arChangeListener.onShowARImage(imagetarget);
+//                        }
+//                    });
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onHideARImage() {
+//                LogUtil.logError("onHideARImage");
+//                if (arChangeListener != null) {
+//                    //识别了AR图片显示出遮罩层
+//
+//                    ManuaARActivity.context.runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            arChangeListener.onHideARImage();
+//                        }
+//                    });
+//                }
+//            }
+//        });
+//        this.setRenderer(new GLSurfaceView.Renderer() {
+//            @Override
+//            public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+//                synchronized (helloAR) {
+//                    helloAR.initGL();
+//                }
+//            }
+//
+//            @Override
+//            public void onSurfaceChanged(GL10 gl, int w, int h) {
+//                synchronized (helloAR) {
+//                    helloAR.resizeGL(w, h);
+//                }
+//            }
+//
+//            @Override
+//            public void onDrawFrame(GL10 gl) {
+//                synchronized (helloAR) {
+//                    helloAR.render();
+//                }
+//            }
+//        });
+//        this.setZOrderMediaOverlay(true);
     }
 
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        synchronized (helloAR) {
-            if (helloAR.initialize()) {
-                helloAR.start();
-            }
-        }
+//        synchronized (helloAR) {
+//            if (helloAR.initialize()) {
+//                helloAR.start();
+//            }
+//        }
     }
 
     @Override
     protected void onDetachedFromWindow() {
-        synchronized (helloAR) {
-            helloAR.stop();
-            helloAR.dispose();
-        }
+//        synchronized (helloAR) {
+//            helloAR.stop();
+//            helloAR.dispose();
+//        }
         super.onDetachedFromWindow();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Engine.onResume();
+       // Engine.onResume();
     }
 
     @Override
     public void onPause() {
-        Engine.onPause();
+     //   Engine.onPause();
         super.onPause();
     }
 
@@ -183,7 +183,7 @@ public class GLView extends GLSurfaceView {
     }
 
     public interface ARChangeListener {
-        void onShowARImage(ImageTarget imagetarget);
+      //  void onShowARImage(ImageTarget imagetarget);
 
         void onHideARImage();
     }
